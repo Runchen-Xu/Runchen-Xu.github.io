@@ -7,9 +7,12 @@ redirect_from:
   - /about.html
 ---
 
-I am Runchen Xu, a Ph.D. student at the School of Computer Science, [The University of Auckland](https://www.auckland.ac.nz), under the supervision of [Prof. Jiamou Liu](https://profiles.auckland.ac.nz/jiamou-liu). My research focuses on Decentralized Artificial Intelligence, Model Markets, and Federated Learning. I am also interested in Mobile Computing, Wireless Communications and Networking, Game Theory, Resource Allocation, and Reinforcement Learning.
+I am Runchen Xu, a Ph.D. student at the School of Computer Science, [The University of Auckland](https://www.auckland.ac.nz), under the supervision of [Prof. Jiamou Liu](https://profiles.auckland.ac.nz/jiamou-liu). My research focuses on Decentralized Artificial Intelligence, Model Markets, and Federated Learning. I am also interested in Mobile Computing, Wireless Communications and Networking, Game Theory, Resource Allocation, and Reinforcement Learning
 
- You can fork [this template](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and Markdown files, add your own PDFs and other content, and have your own site for free, with no ads!
+Previously, I completed my Master's degree in Computer Technology at [University of Electronic Science and Technology of China (UESTC)](https://en.uestc.edu.cn/) in 2025, supervised by [Prof. Zheng chang](https://scholar.google.com/citations?user=MmARrhAAAAAJ&hl=zh-CN&oi=ao). I also earned my Bachelor's degree from UESTC in 2022
+
+If you are interested in me or have research and communication intentions, feel free to contact me at rxu274 [at] aucklanduni.ac.nz.
+
 
 A data-driven personal website
 ======
