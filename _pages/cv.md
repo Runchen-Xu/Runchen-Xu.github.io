@@ -13,54 +13,19 @@ You can download my CV [here](../files/CV.pdf).
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* Nov. 2025 - Present: Ph.D. student at School of Computer Science, The University of Auckland
+* Sep. 2022 - Jun. 2025: M.Eng. student at School of Computer Science and Engineering, UESTC
+* Sep. 2018 - Jun. 2022: B.Eng. student at School of Mechanical and Electrical Engineering, UESTC
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* Sep. 2021 - Jun. 2022: Administrative Assistant
+  * University of Electronic Science and Technology of China
+  * Duties includes: Provide comprehensive administrative support for the daily operations of the International Office of Glasgow College. Assist with program coordination, record maintenance, and cross-cultural communication
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Aug. 2020 - Jun. 2021: Student Mentor for undergraduate students
+  * University of Electronic Science and Technology of China
+  * Duties included: Assist undergraduates with course selection, academic planning, and introduction to academic resources, as well as supervise their academic performance and classroom discipline. Assist the college/faculty in organizing academic, practical, and recreational activities for the class
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+
