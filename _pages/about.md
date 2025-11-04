@@ -1,10 +1,9 @@
 ---
 permalink: /
-title: " "
+title: "Hi~ I'm **Runchen Xu"
 author_profile: true
 ---
 
-Hi~ I'm **Runchen Xu**
 
 I am a Ph.D. student at the School of Computer Science, [The University of Auckland](https://www.auckland.ac.nz), under the supervision of [Prof. Jiamou Liu](https://profiles.auckland.ac.nz/jiamou-liu). My research focuses on **Decentralized Artificial Intelligence, Model Markets, and Federated Learning**. I am also interested in Mobile Computing, Wireless Communications and Networking, Game Theory, Resource Allocation, and Reinforcement Learning
 
