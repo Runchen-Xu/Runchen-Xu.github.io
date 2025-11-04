@@ -16,6 +16,9 @@ If you are interested in me or have research and communication intentions, feel 
 
 ---
 
+
+
+>
 >*Patience is all you need*
 >
  
