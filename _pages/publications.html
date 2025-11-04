@@ -9,6 +9,8 @@ author_profile: true
   <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
 {% endif %}
 
+{% include base_path %}
+
 **Journals**
 
 <ol reversed>  
@@ -23,30 +25,6 @@ author_profile: true
     <li> <b>Runchen Xu</b>, Lu Yu, Zheng Chang, "Contract-based Incentive Mechanism for AI-Generated Content Services in Vehicle Edge Computing," <i>2025 IEEE International Symposium on Personal, Indoor and Mobile Radio Communications</i>, Istanbul, Türkiye, 2025</li>
     <li> <b>Runchen Xu</b>, Zheng Chang, Zhiwei Zhao, and Geyong Min, "<a href="https://ieeexplore.ieee.org/abstract/document/10437342">Contract-Based Incentive Mechanism for Blockchain-Enabled Federated Learning in Vehicle Edge Computing</a>," <i>2023 IEEE Global Communications Conference</i>, Kuala Lumpur, Malaysia, 2023</li>
 </ol>
-
-
-{% include base_path %}
-
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
 
 
 
