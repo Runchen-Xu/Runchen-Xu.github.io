@@ -9,7 +9,7 @@
 
 main:
   - title: "About me"
-    url: /about/
+    url: /
 
   - title: "Education and Work Experience"
     url: /cv/
