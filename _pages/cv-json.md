@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "CV"
+title: "Education and Work Experience"
 permalink: /cv-json/
 author_profile: false
 redirect_from:
