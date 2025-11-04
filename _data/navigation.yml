@@ -8,6 +8,8 @@
 #      Markdown formatted page while the second is generated using JSON.
 
 main:
+  - title: "About me"
+    url: /about/
 
   - title: "Education and Work Experience"
     url: /cv/
