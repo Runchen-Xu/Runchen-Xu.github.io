@@ -14,4 +14,27 @@
 <link rel="icon" href="/images/favicon.ico"/>
 <meta name="theme-color" content="#ffffff"/>
 
+<style>
+  /* Make specific navigation items gray */
+  .masthead .greedy-nav .visible-links .masthead__menu-item--lg a,
+  .masthead .greedy-nav .visible-links a[href="{{ base_path }}/"],
+  .masthead .greedy-nav .visible-links a[href="{{ base_path }}/cv/"],
+  .masthead .greedy-nav .visible-links a[href="{{ base_path }}/publications/"],
+  .masthead .greedy-nav .visible-links a[href="{{ base_path }}/awards/"] {
+    color: #7a7a7a !important;
+  }
+  .masthead .greedy-nav .visible-links .masthead__menu-item--lg a:hover,
+  .masthead .greedy-nav .visible-links a[href="{{ base_path }}/"]:hover,
+  .masthead .greedy-nav .visible-links a[href="{{ base_path }}/cv/"]:hover,
+  .masthead .greedy-nav .visible-links a[href="{{ base_path }}/publications/"]:hover,
+  .masthead .greedy-nav .visible-links a[href="{{ base_path }}/awards/"]:hover,
+  .masthead .greedy-nav .visible-links .masthead__menu-item--lg a:focus,
+  .masthead .greedy-nav .visible-links a[href="{{ base_path }}/"]:focus,
+  .masthead .greedy-nav .visible-links a[href="{{ base_path }}/cv/"]:focus,
+  .masthead .greedy-nav .visible-links a[href="{{ base_path }}/publications/"]:focus,
+  .masthead .greedy-nav .visible-links a[href="{{ base_path }}/awards/"]:focus {
+    color: #7a7a7a !important;
+  }
+</style>
+
 <!-- end custom head snippets -->
