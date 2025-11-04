@@ -12,3 +12,10 @@ I am Runchen Xu, a Ph.D. student at the School of Computer Science, [The Univers
 Previously, I completed my Master's degree in Computer Technology at [University of Electronic Science and Technology of China (UESTC)](https://en.uestc.edu.cn/) in 2025, supervised by [Prof. Zheng chang](https://scholar.google.com/citations?user=MmARrhAAAAAJ&hl=zh-CN&oi=ao). I also earned my Bachelor's degree from UESTC in 2022
 
 If you are interested in me or have research and communication intentions, feel free to contact me at rxu274 [at] aucklanduni.ac.nz
+
+
+---
+
+>*Patience is all you need*
+>
+ 
