@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Hi~ I'm **Runchen Xu"
+title: "Hi~ I'm Runchen Xu"
 author_profile: true
 ---
 
