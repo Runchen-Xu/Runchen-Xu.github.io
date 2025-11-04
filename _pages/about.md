@@ -14,10 +14,11 @@ Previously, I completed my Master's degree in Computer Technology at [University
 If you are interested in me or have research and communication intentions, feel free to contact me at rxu274 [at] aucklanduni.ac.nz
 
 
+
+
+//
+//
 ---
-
-
-
 >
 >*Patience is all you need*
 >
