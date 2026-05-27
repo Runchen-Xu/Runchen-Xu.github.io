@@ -315,19 +315,6 @@ export default function Profile({ author, social, features, researchInterests }:
                 </div>
             )}
 
-            {author.cv_url && (
-                <div className="flex justify-center mb-6">
-                    <a
-                        href={author.cv_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors duration-200 hover:bg-accent-dark"
-                    >
-                        {messages.profile.viewCv}
-                    </a>
-                </div>
-            )}
-
             {/* Like Button */}
             {features.enable_likes && (
                 <div className="flex justify-center">

@@ -10,7 +10,6 @@ name = "Runchen Xu"
 title = "PhD Student"
 institution = "School of Computer Science, University of Auckland"
 avatar = "/bio.jpg"
-cv_url = "/files/CV.pdf"
 
 [social]
 email = "rxu274@aucklanduni.ac.nz"
@@ -49,7 +48,7 @@ target = "about"
 href = "/"
 
 [[navigation]]
-title = "Education & Work Experience"
+title = "Work Experience & Education"
 type = "page"
 target = "cv"
 href = "/cv"

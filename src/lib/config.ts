@@ -15,7 +15,6 @@ export interface SiteConfig {
     title: string;
     institution: string;
     avatar: string;
-    cv_url?: string;
   };
   social: {
     email?: string;

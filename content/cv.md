@@ -1,14 +1,3 @@
-## Education
-
-**The University of Auckland**, Ph.D. in Computer Science, *Nov. 2025 - Present*  
-School of Computer Science, Auckland, New Zealand
-
-**University of Electronic Science and Technology of China (UESTC)**, M.Eng. in Computer Technology, *Sep. 2022 - Jun. 2025*  
-School of Computer Science and Engineering, Chengdu, China
-
-**University of Electronic Science and Technology of China (UESTC)**, B.Eng., *Sep. 2018 - Jun. 2022*  
-School of Mechanical and Electrical Engineering, Chengdu, China
-
 ## Work Experience
 
 **Graduate Teaching Assistant**, The University of Auckland  
@@ -26,3 +15,19 @@ Provided comprehensive administrative support for the daily operations of the In
 **Student Mentor for Undergraduate Students**, University of Electronic Science and Technology of China  
 *Aug. 2020 - Jun. 2021*  
 Assisted undergraduates with course selection, academic planning, and introduction to academic resources, and helped organize academic, practical, and recreational activities for the class.
+
+## Education
+
+**The University of Auckland**, Ph.D. in Computer Science, *Nov. 2025 - Present*  
+School of Computer Science, Auckland, New Zealand
+
+**University of Electronic Science and Technology of China (UESTC)**, M.Eng. in Computer Technology, *Sep. 2022 - Jun. 2025*  
+School of Computer Science and Engineering, Chengdu, China
+
+**University of Electronic Science and Technology of China (UESTC)**, B.Eng., *Sep. 2018 - Jun. 2022*  
+School of Mechanical and Electrical Engineering, Chengdu, China
+
+## Review Experience
+
+- IEEE Transactions on Vehicular Technology (TVT)
+- IEEE GLOBECOM
