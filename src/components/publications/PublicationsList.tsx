@@ -23,6 +23,17 @@ interface PublicationsListProps {
     embedded?: boolean;
 }
 
+function formatVenueAndYear(pub: Publication): string {
+    const venue = pub.journal || pub.conference || '';
+    if (!venue) {
+        return pub.year ? String(pub.year) : '';
+    }
+
+    return pub.year && !venue.includes(String(pub.year))
+        ? `${venue} ${pub.year}`
+        : venue;
+}
+
 export default function PublicationsList({ config, publications, embedded = false }: PublicationsListProps) {
     const messages = useMessages();
     const [searchQuery, setSearchQuery] = useState('');
@@ -231,7 +242,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                                         ))}
                                     </p>
                                     <p className="text-sm font-medium text-neutral-800 dark:text-neutral-600 mb-3">
-                                        {pub.journal || pub.conference} {pub.year}
+                                        {formatVenueAndYear(pub)}
                                     </p>
 
                                     {pub.description && (

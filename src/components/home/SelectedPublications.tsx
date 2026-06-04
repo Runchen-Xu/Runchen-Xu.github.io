@@ -12,6 +12,17 @@ interface SelectedPublicationsProps {
     enableOnePageMode?: boolean;
 }
 
+function formatVenueAndYear(pub: Publication): string {
+    const venue = pub.journal || pub.conference || '';
+    if (!venue) {
+        return pub.year ? String(pub.year) : '';
+    }
+
+    return pub.year && !venue.includes(String(pub.year))
+        ? `${venue} ${pub.year}`
+        : venue;
+}
+
 export default function SelectedPublications({ publications, title, enableOnePageMode = false }: SelectedPublicationsProps) {
     const messages = useMessages();
     const resolvedTitle = title || messages.home.selectedPublications;
@@ -58,9 +69,7 @@ export default function SelectedPublications({ publications, title, enableOnePag
                             ))}
                         </p>
                         <p className="text-sm text-neutral-600 dark:text-neutral-500 mb-2">
-                            {pub.journal || pub.conference}
-                            {(pub.journal || pub.conference) && pub.year ? ' ' : ''}
-                            {pub.year || ''}
+                            {formatVenueAndYear(pub)}
                         </p>
                         {pub.description && (
                             <p className="text-sm text-neutral-500 dark:text-neutral-500 line-clamp-2">
