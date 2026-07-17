@@ -16,7 +16,7 @@
 :root,
 .light {
   /* Light theme colors */
-  --background: #f3efe5;
+  --background: #faf8f4;
   --foreground: #1c1d1a;
 
   /* Brand colors - Ink, Bronze, Stone */
@@ -28,16 +28,16 @@
   --accent-dark: #6f4927;
   
   /* Neutral colors */
-  --neutral-50: #fbf8f1;
-  --neutral-100: #f2ede2;
-  --neutral-200: #e1d8c8;
-  --neutral-300: #c8baa4;
-  --neutral-400: #9e907a;
-  --neutral-500: #6f675a;
-  --neutral-600: #4f4a42;
-  --neutral-700: #34312c;
-  --neutral-800: #252521;
-  --neutral-900: #161714;
+  --neutral-50: #fffdf9;
+  --neutral-100: #f7f3ec;
+  --neutral-200: #e8e0d3;
+  --neutral-300: #d0c4b3;
+  --neutral-400: #a79a88;
+  --neutral-500: #746d62;
+  --neutral-600: #555048;
+  --neutral-700: #3a3630;
+  --neutral-800: #272522;
+  --neutral-900: #181816;
   
   /* Semantic colors */
   --success: #10b981;
@@ -46,8 +46,8 @@
   --info: #3b82f6;
   
   /* Glass effect */
-  --glass-bg: rgba(255, 251, 243, 0.74);
-  --glass-border: rgba(106, 88, 62, 0.12);
+  --glass-bg: rgba(255, 253, 248, 0.76);
+  --glass-border: rgba(106, 88, 62, 0.1);
   --glass-shadow: rgba(44, 34, 21, 0.12);
 }
 
@@ -198,14 +198,14 @@ body::before {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(255, 252, 246, 0.84), rgba(255, 252, 246, 0.68)),
-    radial-gradient(circle at top left, rgba(139, 94, 52, 0.08), transparent 24%),
-    radial-gradient(circle at top right, rgba(26, 37, 52, 0.06), transparent 22%),
+    linear-gradient(180deg, rgba(250, 248, 244, 0.82), rgba(250, 248, 244, 0.66)),
+    radial-gradient(circle at top left, rgba(107, 91, 78, 0.045), transparent 24%),
+    radial-gradient(circle at top right, rgba(90, 98, 120, 0.04), transparent 22%),
     url("/images/backgrounds/celestial-paper.png");
   background-size: auto, auto, auto, cover;
   background-position: center, top left, top right, center top;
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-  opacity: 0.72;
+  opacity: 0.64;
 }
 
 .dark body::before {
@@ -226,15 +226,15 @@ body::after {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(to right, transparent, rgba(139, 94, 52, 0.03) 46%, transparent 54%),
+    linear-gradient(to right, transparent, rgba(107, 91, 78, 0.02) 46%, transparent 54%),
     repeating-linear-gradient(
       to bottom,
-      rgba(26, 37, 52, 0.026) 0,
-      rgba(26, 37, 52, 0.026) 1px,
+      rgba(62, 70, 87, 0.018) 0,
+      rgba(62, 70, 87, 0.018) 1px,
       transparent 1px,
       transparent 40px
     );
-  opacity: 0.4;
+  opacity: 0.32;
 }
 
 .dark body::after {
