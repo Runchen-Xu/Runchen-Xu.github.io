@@ -1,3 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32">
-  <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="80">💪</text>
-</svg> 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Graduation cap">
+  <rect width="64" height="64" rx="14" fill="#faf8f4"/>
+  <path d="M32 14L8 25l24 11 19-8.71V40h4V25L32 14z" fill="#232830"/>
+  <path d="M19 33.5V42c0 2.6 6 7 13 7s13-4.4 13-7v-8.5l-13 6-13-6z" fill="#6b5b4e"/>
+  <path d="M55 40c0 3.8-2.1 7-4.6 7S46 43.8 46 40s2.1-10 4.4-10S55 36.2 55 40z" fill="#8a7969"/>
+</svg>
