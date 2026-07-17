@@ -168,27 +168,25 @@ export default function Navigation({
             className={cn(
               'transition-all duration-300 ease-out',
               scrolled
-                ? 'bg-background/80 backdrop-blur-xl border-b border-neutral-200/50 shadow-lg'
+                ? 'bg-[rgba(243,239,229,0.85)] dark:bg-[rgba(20,24,30,0.86)] backdrop-blur-xl border-b border-[rgba(139,94,52,0.14)] dark:border-[rgba(244,239,230,0.08)]'
                 : 'bg-transparent'
             )}
           >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-between items-center h-16 lg:h-20">
+            <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+              <div className="flex justify-between items-center h-16 lg:h-[4.75rem]">
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
                   className="flex-shrink-0"
                 >
                   <Link
                     href="/"
-                    className="text-xl lg:text-2xl font-serif font-semibold text-primary hover:text-accent transition-colors duration-200"
+                    className="text-[1.05rem] lg:text-[1.15rem] display-sans font-semibold uppercase tracking-[0.16em] text-primary hover:text-accent transition-colors duration-200"
                   >
                     {effectiveSiteTitle}
                   </Link>
                 </motion.div>
 
                 <div className="hidden lg:block">
-                  <div className="ml-10 flex items-center space-x-3">
+                  <div className="ml-10 flex items-center space-x-4">
                     <div
                       ref={navContainerRef}
                       className="relative flex items-baseline space-x-1"
@@ -197,17 +195,17 @@ export default function Navigation({
                       {indicatorStyle && (
                         <motion.div
                           className={cn(
-                            'absolute rounded-lg pointer-events-none',
+                            'absolute pointer-events-none',
                             hoveredHref && hoveredHref !== activeHref
-                              ? 'bg-accent/[0.07]'
-                              : 'bg-accent/10'
+                              ? 'bg-[rgba(139,94,52,0.35)]'
+                              : 'bg-accent'
                           )}
                           initial={false}
                           animate={{
                             left: indicatorStyle.left,
                             width: indicatorStyle.width,
-                            top: indicatorStyle.top,
-                            height: indicatorStyle.height,
+                            top: indicatorStyle.top + indicatorStyle.height - 2,
+                            height: 1,
                           }}
                           transition={{
                             type: 'spring',
@@ -229,7 +227,7 @@ export default function Navigation({
                             onClick={() => enableOnePageMode && setActiveHash(`#${item.target}`)}
                             onMouseEnter={() => setHoveredHref(href)}
                             className={cn(
-                              'relative px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-150',
+                              'relative px-2 py-3 display-sans text-[0.76rem] font-semibold uppercase tracking-[0.16em] transition-colors duration-150',
                               isActive
                                 ? 'text-primary'
                                 : hoveredHref === href
@@ -250,7 +248,7 @@ export default function Navigation({
                 <div className="lg:hidden flex items-center space-x-2">
                   <LanguageToggle i18n={i18n} />
                   <ThemeToggle />
-                  <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-neutral-600 hover:text-primary hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent transition-colors duration-200">
+                  <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-neutral-600 hover:text-primary hover:bg-neutral-100/70 dark:hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent transition-colors duration-200">
                     <span className="sr-only">{messages.navigation.openMainMenu}</span>
                     <motion.div
                       animate={{ rotate: open ? 180 : 0 }}
@@ -276,7 +274,7 @@ export default function Navigation({
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-neutral-200/50 shadow-lg"
+                  className="lg:hidden bg-[rgba(243,239,229,0.96)] dark:bg-[rgba(20,24,30,0.96)] backdrop-blur-xl border-b border-[rgba(139,94,52,0.14)] dark:border-[rgba(244,239,230,0.08)]"
                 >
                   <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                     {effectiveItems.map((item, index) => {
@@ -303,10 +301,10 @@ export default function Navigation({
                             prefetch={true}
                             onClick={() => enableOnePageMode && setActiveHash(item.href === '/' ? '' : `#${item.target}`)}
                             className={cn(
-                              'block px-3 py-2 rounded-md text-base font-medium transition-all duration-200',
+                              'block border-l-2 px-3 py-3 display-sans text-sm font-semibold uppercase tracking-[0.12em] transition-all duration-200',
                               isActive
-                                ? 'text-primary bg-accent/10 border-l-4 border-accent'
-                                : 'text-neutral-600 hover:text-primary hover:bg-neutral-50'
+                                ? 'text-primary border-accent'
+                                : 'text-neutral-600 border-transparent hover:text-primary hover:border-[rgba(139,94,52,0.28)]'
                             )}
                           >
                             {item.title}

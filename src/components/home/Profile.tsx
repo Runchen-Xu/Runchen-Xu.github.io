@@ -109,10 +109,18 @@ export default function Profile({ author, social, features, researchInterests }:
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="sticky top-8"
+            className="sticky top-28"
         >
-            {/* Profile Image */}
-            <div className="w-64 h-64 mx-auto mb-6 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105">
+            <a
+                href="https://www.liuailab.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mb-4 inline-flex text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-accent display-sans transition-colors hover:text-accent-dark"
+            >
+                Civilised Agent Lab
+            </a>
+
+            <div className="w-64 h-64 mx-auto mb-7 rounded-[1.4rem] overflow-hidden shadow-lg border border-[rgba(139,94,52,0.18)] dark:border-[rgba(244,239,230,0.08)]">
                 <Image
                     src={author.avatar}
                     alt={author.name}
@@ -123,21 +131,26 @@ export default function Profile({ author, social, features, researchInterests }:
                 />
             </div>
 
-            {/* Name and Title */}
-            <div className="text-center mb-6">
-                <h1 className="text-3xl font-serif font-bold text-primary mb-2">
+            <div className="text-center mb-8">
+                <h1 className="text-[2.7rem] font-serif font-bold text-primary mb-2 leading-none">
                     {author.name}
                 </h1>
-                <p className="text-lg text-accent font-medium mb-1">
+                <p className="text-[0.88rem] display-sans text-accent font-semibold uppercase tracking-[0.16em] mb-2">
                     {author.title}
                 </p>
-                <p className="text-neutral-600 mb-2">
+                <p className="text-neutral-700 dark:text-neutral-500 leading-7 max-w-xs mx-auto">
                     {author.institution}
                 </p>
             </div>
 
-            {/* Contact Links */}
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-6 relative px-2">
+            <div className="paper-panel rounded-[1.35rem] px-5 py-6 mb-7 relative overflow-hidden">
+                <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(139,94,52,0.35),transparent)]"></div>
+                <p className="text-sm leading-7 text-neutral-700 dark:text-neutral-400 text-center">
+                    PhD student studying decentralized AI systems, multi-agent interaction, and mechanism design.
+                </p>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-7 relative px-2">
                 {socialLinks.map((link) => {
                     const IconComponent = link.icon;
                     if (link.isLocation) {
@@ -305,11 +318,16 @@ export default function Profile({ author, social, features, researchInterests }:
 
             {/* Research Interests */}
             {researchInterests && researchInterests.length > 0 && (
-                <div className="bg-neutral-100 dark:bg-neutral-800 rounded-lg p-4 mb-6 hover:shadow-lg transition-all duration-200 hover:scale-[1.02]">
-                    <h3 className="font-semibold text-primary mb-3">{messages.profile.researchInterests}</h3>
-                    <div className="space-y-2 text-sm text-neutral-700 dark:text-neutral-500">
+                <div className="mb-8">
+                    <h3 className="display-sans text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-accent mb-4">
+                        {messages.profile.researchInterests}
+                    </h3>
+                    <div className="space-y-3 text-sm text-neutral-700 dark:text-neutral-500">
                         {researchInterests.map((interest, index) => (
-                            <div key={index}>{interest}</div>
+                            <div key={index} className="flex items-start gap-3 border-b border-[rgba(139,94,52,0.08)] pb-3 last:border-b-0 last:pb-0 dark:border-[rgba(244,239,230,0.06)]">
+                                <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent"></span>
+                                <span className="leading-6">{interest}</span>
+                            </div>
                         ))}
                     </div>
                 </div>

@@ -14,7 +14,7 @@ const markdownComponents = {
             {...props}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-accent font-medium transition-all duration-200 rounded hover:bg-accent/10 hover:shadow-sm"
+            className="text-accent font-medium underline decoration-accent/40 underline-offset-4 transition-colors duration-200 hover:text-accent-dark"
         />
     ),
     blockquote: ({ children }: React.ComponentProps<'blockquote'>) => (
@@ -36,10 +36,11 @@ export default function CardPage({ config, embedded = false }: { config: CardPag
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
         >
-            <div className={embedded ? "mb-4" : "mb-8"}>
-                <h1 className={`${embedded ? "text-2xl" : "text-4xl"} font-serif font-bold text-primary mb-4`}>{config.title}</h1>
+            <div className={embedded ? "mb-6" : "mb-10"}>
+                <span className="section-kicker mb-4">Academic Highlights</span>
+                <h1 className="section-title text-primary">{config.title}</h1>
                 {config.description && (
-                    <div className={`${embedded ? "text-base" : "text-lg"} text-neutral-600 dark:text-neutral-500 max-w-2xl leading-relaxed`}>
+                    <div className={`${embedded ? "text-base" : "text-lg"} text-neutral-600 dark:text-neutral-500 max-w-3xl leading-8 mt-4`}>
                         <ReactMarkdown components={markdownComponents}>
                             {config.description}
                         </ReactMarkdown>
@@ -54,21 +55,21 @@ export default function CardPage({ config, embedded = false }: { config: CardPag
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 0.1 * index }}
-                        className={`bg-white dark:bg-neutral-900 ${embedded ? "p-4" : "p-6"} rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all duration-200 hover:scale-[1.01]`}
+                        className={`paper-panel ${embedded ? "p-5" : "p-7"} rounded-[1.35rem] transition-shadow duration-200`}
                     >
-                        <div className="flex justify-between items-start mb-2">
-                            <h3 className={`${embedded ? "text-lg" : "text-xl"} font-semibold text-primary`}>{item.title}</h3>
+                        <div className="flex justify-between items-start gap-4 mb-2">
+                            <h3 className={`${embedded ? "text-lg" : "text-xl"} font-serif font-bold text-primary leading-tight`}>{item.title}</h3>
                             {item.date && (
-                                <span className="text-sm text-neutral-500 font-medium bg-neutral-100 dark:bg-neutral-800 px-2 py-1 rounded">
+                                <span className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-accent whitespace-nowrap pt-1">
                                     {item.date}
                                 </span>
                             )}
                         </div>
                         {item.subtitle && (
-                            <p className={`${embedded ? "text-sm" : "text-base"} text-accent font-medium mb-3`}>{item.subtitle}</p>
+                            <p className={`${embedded ? "text-sm" : "text-base"} text-neutral-700 dark:text-neutral-400 font-medium mb-3`}>{item.subtitle}</p>
                         )}
                         {item.content && (
-                            <div className={`${embedded ? "text-sm" : "text-base"} text-neutral-600 dark:text-neutral-500 leading-relaxed`}>
+                            <div className={`${embedded ? "text-sm" : "text-base"} text-neutral-600 dark:text-neutral-500 leading-7`}>
                                 <ReactMarkdown components={markdownComponents}>
                                     {item.content}
                                 </ReactMarkdown>

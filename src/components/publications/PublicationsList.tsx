@@ -77,17 +77,17 @@ export default function PublicationsList({ config, publications, embedded = fals
             transition={{ duration: 0.6, delay: 0.4 }}
         >
             <div className="mb-8">
-                <h1 className={`${embedded ? "text-2xl" : "text-4xl"} font-serif font-bold text-primary mb-4`}>{config.title}</h1>
+                <span className="section-kicker mb-4">Research Archive</span>
+                <h1 className={`${embedded ? "section-title text-primary" : "section-title text-primary"}`}>{config.title}</h1>
                 {config.description && (
-                    <p className={`${embedded ? "text-base" : "text-lg"} text-neutral-600 dark:text-neutral-500 max-w-2xl`}>
+                    <p className={`${embedded ? "text-base" : "text-lg"} text-neutral-600 dark:text-neutral-500 max-w-3xl leading-8 mt-4`}>
                         {config.description}
                     </p>
                 )}
             </div>
 
             {/* Search and Filter Controls */}
-            <div className="mb-8 space-y-4">
-                {/* ... (keep existing controls) ... */}
+            <div className="mb-10 space-y-4">
                 <div className="flex flex-col sm:flex-row gap-4">
                     <div className="relative flex-grow">
                         <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-neutral-400" />
@@ -96,16 +96,16 @@ export default function PublicationsList({ config, publications, embedded = fals
                             placeholder={messages.publications.searchPlaceholder}
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full pl-10 pr-4 py-2 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200"
+                            className="w-full pl-10 pr-4 py-3 rounded-full border border-[rgba(139,94,52,0.18)] dark:border-[rgba(244,239,230,0.08)] bg-[rgba(255,251,244,0.7)] dark:bg-[rgba(27,33,41,0.72)] focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200"
                         />
                     </div>
                     <button
                         onClick={() => setShowFilters(!showFilters)}
                         className={cn(
-                            "flex items-center justify-center px-4 py-2 rounded-lg border transition-all duration-200",
+                            "flex items-center justify-center px-4 py-3 rounded-full border transition-all duration-200 display-sans text-[0.78rem] font-semibold uppercase tracking-[0.14em]",
                             showFilters
                                 ? "bg-accent text-white border-accent"
-                                : "bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 text-neutral-600 hover:border-accent hover:text-accent"
+                                : "bg-[rgba(255,251,244,0.7)] dark:bg-[rgba(27,33,41,0.72)] border-[rgba(139,94,52,0.18)] dark:border-[rgba(244,239,230,0.08)] text-neutral-600 hover:border-accent hover:text-accent"
                         )}
                     >
                         <FunnelIcon className="h-5 w-5 mr-2" />
@@ -121,7 +121,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                             exit={{ opacity: 0, height: 0 }}
                             className="overflow-hidden"
                         >
-                            <div className="p-4 bg-neutral-50 dark:bg-neutral-800/50 rounded-lg border border-neutral-200 dark:border-neutral-800 flex flex-wrap gap-6">
+                            <div className="p-5 bg-[rgba(255,251,244,0.72)] dark:bg-[rgba(27,33,41,0.76)] rounded-[1.25rem] border border-[rgba(139,94,52,0.14)] dark:border-[rgba(244,239,230,0.08)] flex flex-wrap gap-6">
                                 {/* Year Filter */}
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-neutral-700 dark:text-neutral-300 flex items-center">
@@ -195,8 +195,8 @@ export default function PublicationsList({ config, publications, embedded = fals
                 </AnimatePresence>
             </div>
 
-            {/* Publications Grid */}
-            <div className="space-y-6">
+            {/* Publications list */}
+            <div className="scholar-rule">
                 {filteredPublications.length === 0 ? (
                     <div className="text-center py-12 text-neutral-500">
                         {messages.publications.noResults}
@@ -208,27 +208,30 @@ export default function PublicationsList({ config, publications, embedded = fals
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.4, delay: 0.1 * index }}
-                            className="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200"
+                            className="py-6 border-b border-[rgba(139,94,52,0.14)] dark:border-[rgba(244,239,230,0.08)] transition-colors duration-200 hover:bg-[rgba(139,94,52,0.03)] dark:hover:bg-[rgba(244,239,230,0.02)]"
                         >
-                            <div className="flex flex-col md:flex-row gap-6">
-                                {pub.preview && (
-                                    <div className="w-full md:w-48 flex-shrink-0">
-                                        <div className="aspect-video md:aspect-[4/3] relative rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-800">
-                                            <Image
-                                                src={`/papers/${pub.preview}`}
-                                                alt={pub.title}
-                                                fill
-                                                className="object-cover"
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                            />
+                            <div className="grid gap-5 md:grid-cols-[6rem_minmax(0,1fr)]">
+                                <div className="text-[0.8rem] font-semibold uppercase tracking-[0.16em] text-accent pt-1">
+                                    {pub.year}
+                                </div>
+                                <div>
+                                    {pub.preview && (
+                                        <div className="mb-5 w-full md:float-right md:mb-3 md:ml-6 md:w-56">
+                                            <div className="relative aspect-video overflow-hidden rounded-[1rem] border border-[rgba(139,94,52,0.14)] bg-neutral-100 shadow-sm dark:border-[rgba(244,239,230,0.08)] dark:bg-neutral-800 md:aspect-[4/3]">
+                                                <Image
+                                                    src={`/papers/${pub.preview}`}
+                                                    alt={pub.title}
+                                                    fill
+                                                    className="object-cover"
+                                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                />
+                                            </div>
                                         </div>
-                                    </div>
-                                )}
-                                <div className="flex-grow">
-                                    <h3 className={`${embedded ? "text-lg" : "text-xl"} font-semibold text-primary mb-2 leading-tight`}>
+                                    )}
+                                    <h3 className={`${embedded ? "text-[1.2rem]" : "text-[1.35rem]"} font-serif font-bold text-primary mb-2 leading-tight`}>
                                         <FormattedBibTeXText nodes={pub.titleNodes} fallback={pub.title} />
                                     </h3>
-                                    <p className={`${embedded ? "text-sm" : "text-base"} text-neutral-600 dark:text-neutral-400 mb-2`}>
+                                    <p className={`${embedded ? "text-sm" : "text-base"} text-neutral-600 dark:text-neutral-400 mb-2 leading-7`}>
                                         {pub.authors.map((author, idx) => (
                                             <span key={idx}>
                                                 <span className={`${author.isHighlighted ? 'font-semibold text-accent' : ''} ${author.isCoAuthor ? `underline underline-offset-4 ${author.isHighlighted ? 'decoration-accent' : 'decoration-neutral-400'}` : ''}`}>
@@ -241,12 +244,12 @@ export default function PublicationsList({ config, publications, embedded = fals
                                             </span>
                                         ))}
                                     </p>
-                                    <p className="text-sm font-medium text-neutral-800 dark:text-neutral-600 mb-3">
+                                    <p className="text-[0.94rem] font-medium text-neutral-800 dark:text-neutral-600 mb-3">
                                         {formatVenueAndYear(pub)}
                                     </p>
 
                                     {pub.description && (
-                                        <p className="text-sm text-neutral-600 dark:text-neutral-500 mb-4 line-clamp-3">
+                                        <p className="text-sm text-neutral-600 dark:text-neutral-500 mb-4 leading-7">
                                             {pub.description}
                                         </p>
                                     )}
@@ -257,7 +260,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                                                 href={`https://doi.org/${pub.doi}`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
+                                                className="inline-flex items-center rounded-full border border-[rgba(139,94,52,0.16)] px-3 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-neutral-700 transition-colors hover:border-accent hover:bg-accent hover:text-white dark:border-[rgba(244,239,230,0.08)] dark:text-neutral-300 dark:hover:border-accent"
                                             >
                                                 DOI
                                             </a>
@@ -267,7 +270,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                                                 href={pub.code}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
+                                                className="inline-flex items-center rounded-full border border-[rgba(139,94,52,0.16)] px-3 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-neutral-700 transition-colors hover:border-accent hover:bg-accent hover:text-white dark:border-[rgba(244,239,230,0.08)] dark:text-neutral-300 dark:hover:border-accent"
                                             >
                                                 {messages.publications.code}
                                             </a>
@@ -276,10 +279,10 @@ export default function PublicationsList({ config, publications, embedded = fals
                                             <button
                                                 onClick={() => setExpandedAbstractId(expandedAbstractId === pub.id ? null : pub.id)}
                                                 className={cn(
-                                                    "inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors",
+                                                    "inline-flex items-center rounded-full border px-3 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.12em] transition-colors",
                                                     expandedAbstractId === pub.id
-                                                        ? "bg-accent text-white"
-                                                        : "bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white"
+                                                        ? "border-accent bg-accent text-white"
+                                                        : "border-[rgba(139,94,52,0.16)] text-neutral-700 hover:border-accent hover:bg-accent hover:text-white dark:border-[rgba(244,239,230,0.08)] dark:text-neutral-300 dark:hover:border-accent"
                                                 )}
                                             >
                                                 <DocumentTextIcon className="h-3 w-3 mr-1.5" />
@@ -290,10 +293,10 @@ export default function PublicationsList({ config, publications, embedded = fals
                                             <button
                                                 onClick={() => setExpandedBibtexId(expandedBibtexId === pub.id ? null : pub.id)}
                                                 className={cn(
-                                                    "inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors",
+                                                    "inline-flex items-center rounded-full border px-3 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.12em] transition-colors",
                                                     expandedBibtexId === pub.id
-                                                        ? "bg-accent text-white"
-                                                        : "bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white"
+                                                        ? "border-accent bg-accent text-white"
+                                                        : "border-[rgba(139,94,52,0.16)] text-neutral-700 hover:border-accent hover:bg-accent hover:text-white dark:border-[rgba(244,239,230,0.08)] dark:text-neutral-300 dark:hover:border-accent"
                                                 )}
                                             >
                                                 <BookOpenIcon className="h-3 w-3 mr-1.5" />
@@ -311,7 +314,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                                                 exit={{ opacity: 0, height: 0 }}
                                                 className="overflow-hidden mt-4"
                                             >
-                                                <div className="bg-neutral-50 dark:bg-neutral-800 rounded-lg p-4 border border-neutral-200 dark:border-neutral-700">
+                                                <div className="rounded-[1rem] border border-[rgba(139,94,52,0.14)] bg-[rgba(255,251,244,0.7)] p-4 dark:border-[rgba(244,239,230,0.08)] dark:bg-[rgba(27,33,41,0.72)]">
                                                     <p className="text-sm text-neutral-600 dark:text-neutral-500 leading-relaxed">
                                                         {pub.abstract}
                                                     </p>
@@ -326,7 +329,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                                                 exit={{ opacity: 0, height: 0 }}
                                                 className="overflow-hidden mt-4"
                                             >
-                                                <div className="relative bg-neutral-50 dark:bg-neutral-800 rounded-lg p-4 border border-neutral-200 dark:border-neutral-700">
+                                                <div className="relative rounded-[1rem] border border-[rgba(139,94,52,0.14)] bg-[rgba(255,251,244,0.7)] p-4 dark:border-[rgba(244,239,230,0.08)] dark:bg-[rgba(27,33,41,0.72)]">
                                                     <pre className="text-xs text-neutral-600 dark:text-neutral-500 overflow-x-auto whitespace-pre-wrap font-mono">
                                                         {pub.bibtex}
                                                     </pre>
@@ -335,7 +338,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                                                             navigator.clipboard.writeText(pub.bibtex || '');
                                                             // Optional: Show copied feedback
                                                         }}
-                                                        className="absolute top-2 right-2 p-1.5 rounded-md bg-white dark:bg-neutral-700 text-neutral-500 hover:text-accent shadow-sm border border-neutral-200 dark:border-neutral-600 transition-colors"
+                                                        className="absolute right-2 top-2 rounded-full border border-[rgba(139,94,52,0.14)] bg-white/90 p-1.5 text-neutral-500 shadow-sm transition-colors hover:text-accent dark:border-[rgba(244,239,230,0.08)] dark:bg-neutral-700"
                                                         title={messages.common.copyToClipboard}
                                                     >
                                                         <ClipboardDocumentIcon className="h-4 w-4" />
