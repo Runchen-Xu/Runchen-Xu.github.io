@@ -120,15 +120,17 @@ export default function Profile({ author, social, features, researchInterests }:
                 Civilised Agent Lab
             </a>
 
-            <div className="w-64 h-64 mx-auto mb-7 rounded-[1.4rem] overflow-hidden shadow-lg border border-[rgba(139,94,52,0.18)] dark:border-[rgba(244,239,230,0.08)]">
-                <Image
-                    src={author.avatar}
-                    alt={author.name}
-                    width={256}
-                    height={256}
-                    className="w-full h-full object-cover object-[32%_center]"
-                    priority
-                />
+            <div className="profile-portrait mx-auto mb-7">
+                <div className="profile-portrait__frame">
+                    <Image
+                        src={author.avatar}
+                        alt={author.name}
+                        width={256}
+                        height={256}
+                        className="profile-portrait__image object-[32%_center]"
+                        priority
+                    />
+                </div>
             </div>
 
             <div className="text-center mb-8">
