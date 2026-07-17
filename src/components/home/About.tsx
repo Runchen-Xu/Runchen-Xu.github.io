@@ -39,7 +39,7 @@ export default function About({ content, title }: AboutProps) {
                                     className="text-accent font-medium underline decoration-accent/40 underline-offset-4 transition-colors duration-200 hover:text-accent-dark"
                                 />
                             ),
-                            strong: ({ children }) => <strong className="font-semibold text-primary dark:text-primary-light">{children}</strong>,
+                            strong: ({ children }) => <strong className="handwritten-strong text-primary dark:text-primary-light">{children}</strong>,
                             em: ({ children }) => <em className="italic text-neutral-600 dark:text-neutral-500">{children}</em>,
                         }}
                     >
@@ -51,8 +51,8 @@ export default function About({ content, title }: AboutProps) {
             <div className="prose-editorial text-neutral-700 dark:text-neutral-600 leading-relaxed max-w-4xl">
                 <ReactMarkdown
                     components={{
-                        h1: ({ children }) => <h1 className="text-3xl font-serif font-bold text-primary mt-10 mb-4">{children}</h1>,
-                        h2: ({ children }) => <h2 className="text-2xl font-serif font-bold text-primary mt-10 mb-4 pb-2 scholar-rule">{children}</h2>,
+                        h1: ({ children }) => <h1 className="font-handwritten text-[2.3rem] font-bold text-primary mt-10 mb-4 leading-none">{children}</h1>,
+                        h2: ({ children }) => <h2 className="font-handwritten text-[2rem] font-bold text-primary mt-10 mb-4 pb-2 scholar-rule leading-none">{children}</h2>,
                         h3: ({ children }) => <h3 className="text-xl font-semibold text-primary mt-8 mb-3">{children}</h3>,
                         p: ({ children }) => <p className="mb-5 last:mb-0 text-[1.02rem] leading-8">{children}</p>,
                         ul: ({ children }) => <ul className="list-disc list-inside mb-5 space-y-2 ml-4">{children}</ul>,
@@ -71,7 +71,7 @@ export default function About({ content, title }: AboutProps) {
                                 {children}
                             </blockquote>
                         ),
-                        strong: ({ children }) => <strong className="font-semibold text-primary">{children}</strong>,
+                        strong: ({ children }) => <strong className="handwritten-strong text-primary">{children}</strong>,
                         em: ({ children }) => <em className="italic text-neutral-600 dark:text-neutral-500">{children}</em>,
                     }}
                 >

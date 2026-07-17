@@ -22,7 +22,7 @@ const markdownComponents = {
             {children}
         </blockquote>
     ),
-    strong: ({ children }: React.ComponentProps<'strong'>) => <strong className="font-semibold text-primary">{children}</strong>,
+    strong: ({ children }: React.ComponentProps<'strong'>) => <strong className="handwritten-strong text-primary">{children}</strong>,
     em: ({ children }: React.ComponentProps<'em'>) => <em className="italic">{children}</em>,
     code: ({ children }: React.ComponentProps<'code'>) => (
         <code className="px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 text-[0.95em]">{children}</code>

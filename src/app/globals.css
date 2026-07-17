@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap");
 @import "tailwindcss";
 
 @font-face {
@@ -89,6 +89,7 @@
   --font-sans: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-serif: 'Georgia CDN', Georgia, serif;
   --font-display: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-handwritten: 'Caveat', 'Comic Sans MS', cursive;
   --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
   
   /* Font sizes */
@@ -181,11 +182,7 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(circle at top left, rgba(139, 94, 52, 0.08), transparent 24%),
-    radial-gradient(circle at top right, rgba(26, 37, 52, 0.06), transparent 22%),
-    linear-gradient(180deg, rgba(255, 252, 246, 0.35), rgba(255, 252, 246, 0)),
-    var(--background);
+  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
   line-height: var(--line-height-normal);
@@ -201,28 +198,56 @@ body::before {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(to right, transparent, rgba(139, 94, 52, 0.035) 46%, transparent 54%),
-    repeating-linear-gradient(
-      to bottom,
-      rgba(26, 37, 52, 0.03) 0,
-      rgba(26, 37, 52, 0.03) 1px,
-      transparent 1px,
-      transparent 40px
-    );
-  opacity: 0.45;
+    linear-gradient(180deg, rgba(255, 252, 246, 0.84), rgba(255, 252, 246, 0.68)),
+    radial-gradient(circle at top left, rgba(139, 94, 52, 0.08), transparent 24%),
+    radial-gradient(circle at top right, rgba(26, 37, 52, 0.06), transparent 22%),
+    url("/images/backgrounds/celestial-paper.png");
+  background-size: auto, auto, auto, cover;
+  background-position: center, top left, top right, center top;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  opacity: 0.72;
 }
 
 .dark body::before {
   background:
-    linear-gradient(to right, transparent, rgba(195, 149, 95, 0.035) 46%, transparent 54%),
+    linear-gradient(180deg, rgba(20, 24, 30, 0.9), rgba(20, 24, 30, 0.84)),
+    radial-gradient(circle at top left, rgba(195, 149, 95, 0.05), transparent 24%),
+    radial-gradient(circle at top right, rgba(244, 239, 230, 0.04), transparent 20%),
+    url("/images/backgrounds/celestial-paper.png");
+  background-size: auto, auto, auto, cover;
+  background-position: center, top left, top right, center top;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  opacity: 0.24;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to right, transparent, rgba(139, 94, 52, 0.03) 46%, transparent 54%),
     repeating-linear-gradient(
       to bottom,
-      rgba(244, 239, 230, 0.025) 0,
-      rgba(244, 239, 230, 0.025) 1px,
+      rgba(26, 37, 52, 0.026) 0,
+      rgba(26, 37, 52, 0.026) 1px,
       transparent 1px,
       transparent 40px
     );
-  opacity: 0.22;
+  opacity: 0.4;
+}
+
+.dark body::after {
+  background:
+    linear-gradient(to right, transparent, rgba(195, 149, 95, 0.03) 46%, transparent 54%),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(244, 239, 230, 0.022) 0,
+      rgba(244, 239, 230, 0.022) 1px,
+      transparent 1px,
+      transparent 40px
+    );
+  opacity: 0.2;
 }
 
 /* Typography utilities */
@@ -403,14 +428,26 @@ body::before {
 }
 
 .section-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 2.2vw, 2.6rem);
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  font-family: var(--font-handwritten);
+  font-size: clamp(2.35rem, 2.9vw, 3.2rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: 0.01em;
 }
 
 .display-sans {
   font-family: var(--font-display);
+}
+
+.font-handwritten {
+  font-family: var(--font-handwritten);
+}
+
+.handwritten-strong {
+  font-family: var(--font-handwritten);
+  font-size: 1.12em;
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 .prose-editorial {
