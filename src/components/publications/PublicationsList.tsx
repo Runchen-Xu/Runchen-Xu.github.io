@@ -96,16 +96,16 @@ export default function PublicationsList({ config, publications, embedded = fals
                             placeholder={messages.publications.searchPlaceholder}
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full pl-10 pr-4 py-3 rounded-full border border-[rgba(139,94,52,0.18)] dark:border-[rgba(244,239,230,0.08)] bg-[rgba(255,251,244,0.7)] dark:bg-[rgba(27,33,41,0.72)] focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200"
+                            className="w-full border-b border-[rgba(107,91,78,0.18)] bg-transparent px-10 py-3 focus:ring-0 focus:border-accent transition-all duration-200 dark:border-[rgba(244,239,230,0.08)]"
                         />
                     </div>
                     <button
                         onClick={() => setShowFilters(!showFilters)}
                         className={cn(
-                            "flex items-center justify-center px-4 py-3 rounded-full border transition-all duration-200 display-sans text-[0.78rem] font-semibold uppercase tracking-[0.14em]",
+                            "flex items-center justify-center border-b px-4 py-3 transition-all duration-200 display-sans text-[0.78rem] font-semibold uppercase tracking-[0.14em]",
                             showFilters
-                                ? "bg-accent text-white border-accent"
-                                : "bg-[rgba(255,251,244,0.7)] dark:bg-[rgba(27,33,41,0.72)] border-[rgba(139,94,52,0.18)] dark:border-[rgba(244,239,230,0.08)] text-neutral-600 hover:border-accent hover:text-accent"
+                                ? "text-accent border-accent"
+                                : "bg-transparent border-[rgba(107,91,78,0.18)] dark:border-[rgba(244,239,230,0.08)] text-neutral-600 hover:border-accent hover:text-accent"
                         )}
                     >
                         <FunnelIcon className="h-5 w-5 mr-2" />
@@ -121,7 +121,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                             exit={{ opacity: 0, height: 0 }}
                             className="overflow-hidden"
                         >
-                            <div className="p-5 bg-[rgba(255,251,244,0.72)] dark:bg-[rgba(27,33,41,0.76)] rounded-[1.25rem] border border-[rgba(139,94,52,0.14)] dark:border-[rgba(244,239,230,0.08)] flex flex-wrap gap-6">
+                            <div className="border-t border-[rgba(107,91,78,0.14)] pt-5 dark:border-[rgba(244,239,230,0.08)] flex flex-wrap gap-6">
                                 {/* Year Filter */}
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-neutral-700 dark:text-neutral-300 flex items-center">
@@ -208,7 +208,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.4, delay: 0.1 * index }}
-                            className="py-6 border-b border-[rgba(139,94,52,0.14)] dark:border-[rgba(244,239,230,0.08)] transition-colors duration-200 hover:bg-[rgba(139,94,52,0.03)] dark:hover:bg-[rgba(244,239,230,0.02)]"
+                            className="py-6 border-b border-[rgba(107,91,78,0.14)] dark:border-[rgba(244,239,230,0.08)] transition-colors duration-200 hover:bg-[rgba(107,91,78,0.03)] dark:hover:bg-[rgba(244,239,230,0.02)]"
                         >
                             <div className="grid gap-5 md:grid-cols-[6rem_minmax(0,1fr)]">
                                 <div className="text-[0.8rem] font-semibold uppercase tracking-[0.16em] text-accent pt-1">
@@ -314,7 +314,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                                                 exit={{ opacity: 0, height: 0 }}
                                                 className="overflow-hidden mt-4"
                                             >
-                                                <div className="rounded-[1rem] border border-[rgba(139,94,52,0.14)] bg-[rgba(255,251,244,0.7)] p-4 dark:border-[rgba(244,239,230,0.08)] dark:bg-[rgba(27,33,41,0.72)]">
+                                                <div className="border-l-2 border-[rgba(107,91,78,0.18)] pl-4 dark:border-[rgba(244,239,230,0.12)]">
                                                     <p className="text-sm text-neutral-600 dark:text-neutral-500 leading-relaxed">
                                                         {pub.abstract}
                                                     </p>
@@ -329,7 +329,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                                                 exit={{ opacity: 0, height: 0 }}
                                                 className="overflow-hidden mt-4"
                                             >
-                                                <div className="relative rounded-[1rem] border border-[rgba(139,94,52,0.14)] bg-[rgba(255,251,244,0.7)] p-4 dark:border-[rgba(244,239,230,0.08)] dark:bg-[rgba(27,33,41,0.72)]">
+                                                <div className="relative border-l-2 border-[rgba(107,91,78,0.18)] pl-4 dark:border-[rgba(244,239,230,0.12)]">
                                                     <pre className="text-xs text-neutral-600 dark:text-neutral-500 overflow-x-auto whitespace-pre-wrap font-mono">
                                                         {pub.bibtex}
                                                     </pre>
@@ -338,7 +338,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                                                             navigator.clipboard.writeText(pub.bibtex || '');
                                                             // Optional: Show copied feedback
                                                         }}
-                                                        className="absolute right-2 top-2 rounded-full border border-[rgba(139,94,52,0.14)] bg-white/90 p-1.5 text-neutral-500 shadow-sm transition-colors hover:text-accent dark:border-[rgba(244,239,230,0.08)] dark:bg-neutral-700"
+                                                        className="absolute right-0 top-0 p-1 text-neutral-500 transition-colors hover:text-accent"
                                                         title={messages.common.copyToClipboard}
                                                     >
                                                         <ClipboardDocumentIcon className="h-4 w-4" />

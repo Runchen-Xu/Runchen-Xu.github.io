@@ -48,42 +48,44 @@ export default function CardPage({ config, embedded = false }: { config: CardPag
                 )}
             </div>
 
-            <div className={`grid ${embedded ? "gap-4" : "gap-6"}`}>
+            <div className="scholar-rule">
                 {config.items.map((item, index) => (
                     <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 0.1 * index }}
-                        className={`paper-panel ${embedded ? "p-5" : "p-7"} rounded-[1.35rem] transition-shadow duration-200`}
+                        className={`grid gap-3 border-b border-[rgba(107,91,78,0.14)] py-5 dark:border-[rgba(244,239,230,0.08)] ${item.date ? "md:grid-cols-[7rem_minmax(0,1fr)]" : ""}`}
                     >
-                        <div className="flex justify-between items-start gap-4 mb-2">
-                            <h3 className={`${embedded ? "text-lg" : "text-xl"} font-serif font-bold text-primary leading-tight`}>{item.title}</h3>
-                            {item.date && (
-                                <span className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-accent whitespace-nowrap pt-1">
-                                    {item.date}
-                                </span>
+                        {item.date ? (
+                            <div className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-accent pt-1">
+                                {item.date}
+                            </div>
+                        ) : null}
+                        <div>
+                            <div className="mb-2 flex justify-between items-start gap-4">
+                                <h3 className={`${embedded ? "text-lg" : "text-xl"} font-serif font-bold text-primary leading-tight`}>{item.title}</h3>
+                            </div>
+                            {item.subtitle && (
+                                <p className={`${embedded ? "text-sm" : "text-base"} text-neutral-700 dark:text-neutral-400 font-medium mb-3`}>{item.subtitle}</p>
+                            )}
+                            {item.content && (
+                                <div className={`${embedded ? "text-sm" : "text-base"} text-neutral-600 dark:text-neutral-500 leading-7`}>
+                                    <ReactMarkdown components={markdownComponents}>
+                                        {item.content}
+                                    </ReactMarkdown>
+                                </div>
+                            )}
+                            {item.tags && (
+                                <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-xs uppercase tracking-[0.12em] text-neutral-500">
+                                    {item.tags.map(tag => (
+                                        <span key={tag}>
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
                             )}
                         </div>
-                        {item.subtitle && (
-                            <p className={`${embedded ? "text-sm" : "text-base"} text-neutral-700 dark:text-neutral-400 font-medium mb-3`}>{item.subtitle}</p>
-                        )}
-                        {item.content && (
-                            <div className={`${embedded ? "text-sm" : "text-base"} text-neutral-600 dark:text-neutral-500 leading-7`}>
-                                <ReactMarkdown components={markdownComponents}>
-                                    {item.content}
-                                </ReactMarkdown>
-                            </div>
-                        )}
-                        {item.tags && (
-                            <div className="flex flex-wrap gap-2 mt-4">
-                                {item.tags.map(tag => (
-                                    <span key={tag} className="text-xs text-neutral-500 bg-neutral-50 dark:bg-neutral-800/50 px-2 py-1 rounded border border-neutral-100 dark:border-neutral-800">
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        )}
                     </motion.div>
                 ))}
             </div>

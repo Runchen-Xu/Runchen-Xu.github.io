@@ -27,7 +27,7 @@ export default function About({ content, title }: AboutProps) {
             </div>
 
             {leadBlock && (
-                <div className="paper-panel lead-panel max-w-4xl rounded-[1.5rem] px-6 py-6 sm:px-8 sm:py-7 mb-8">
+                <div className="lead-panel max-w-4xl px-2 py-6 sm:px-4 sm:py-7 mb-8">
                     <ReactMarkdown
                         components={{
                             p: ({ children }) => <p className="lead-markdown text-[1.12rem] sm:text-[1.18rem] leading-9 text-primary dark:text-primary-light">{children}</p>,

@@ -145,8 +145,7 @@ export default function Profile({ author, social, features, researchInterests }:
                 </p>
             </div>
 
-            <div className="paper-panel rounded-[1.35rem] px-5 py-6 mb-7 relative overflow-hidden">
-                <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(139,94,52,0.35),transparent)]"></div>
+            <div className="mb-7 border-y border-[rgba(107,91,78,0.16)] px-2 py-5 dark:border-[rgba(244,239,230,0.08)]">
                 <p className="text-sm leading-7 text-neutral-700 dark:text-neutral-400 text-center">
                     PhD student studying decentralized AI systems, multi-agent interaction, and mechanism design.
                 </p>

@@ -20,24 +20,24 @@
   --foreground: #1c1d1a;
 
   /* Brand colors - Ink, Bronze, Stone */
-  --primary: #1a2534;
-  --primary-light: #304155;
-  --primary-dark: #101722;
-  --accent: #8b5e34;
-  --accent-light: #a67749;
-  --accent-dark: #6f4927;
+  --primary: #232830;
+  --primary-light: #3b4654;
+  --primary-dark: #171c22;
+  --accent: #6b5b4e;
+  --accent-light: #8a7969;
+  --accent-dark: #4e4339;
   
   /* Neutral colors */
   --neutral-50: #fffdf9;
   --neutral-100: #f7f3ec;
-  --neutral-200: #e8e0d3;
-  --neutral-300: #d0c4b3;
-  --neutral-400: #a79a88;
-  --neutral-500: #746d62;
-  --neutral-600: #555048;
-  --neutral-700: #3a3630;
-  --neutral-800: #272522;
-  --neutral-900: #181816;
+  --neutral-200: #e7e1d8;
+  --neutral-300: #cdc5b8;
+  --neutral-400: #a59c90;
+  --neutral-500: #716b64;
+  --neutral-600: #514d48;
+  --neutral-700: #393733;
+  --neutral-800: #262523;
+  --neutral-900: #171716;
   
   /* Semantic colors */
   --success: #10b981;
@@ -46,8 +46,8 @@
   --info: #3b82f6;
   
   /* Glass effect */
-  --glass-bg: rgba(255, 253, 248, 0.76);
-  --glass-border: rgba(106, 88, 62, 0.1);
+  --glass-bg: rgba(255, 253, 248, 0.7);
+  --glass-border: rgba(107, 91, 78, 0.08);
   --glass-shadow: rgba(44, 34, 21, 0.12);
 }
 
@@ -198,14 +198,14 @@ body::before {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(250, 248, 244, 0.82), rgba(250, 248, 244, 0.66)),
-    radial-gradient(circle at top left, rgba(107, 91, 78, 0.045), transparent 24%),
-    radial-gradient(circle at top right, rgba(90, 98, 120, 0.04), transparent 22%),
+    linear-gradient(180deg, rgba(250, 248, 244, 0.76), rgba(250, 248, 244, 0.58)),
+    radial-gradient(circle at top left, rgba(107, 91, 78, 0.028), transparent 24%),
+    radial-gradient(circle at top right, rgba(90, 98, 120, 0.03), transparent 22%),
     url("/images/backgrounds/celestial-paper.png");
   background-size: auto, auto, auto, cover;
   background-position: center, top left, top right, center top;
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-  opacity: 0.64;
+  opacity: 0.52;
 }
 
 .dark body::before {
@@ -226,15 +226,15 @@ body::after {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(to right, transparent, rgba(107, 91, 78, 0.02) 46%, transparent 54%),
+    linear-gradient(to right, transparent, rgba(107, 91, 78, 0.014) 46%, transparent 54%),
     repeating-linear-gradient(
       to bottom,
-      rgba(62, 70, 87, 0.018) 0,
-      rgba(62, 70, 87, 0.018) 1px,
+      rgba(62, 70, 87, 0.013) 0,
+      rgba(62, 70, 87, 0.013) 1px,
       transparent 1px,
       transparent 40px
     );
-  opacity: 0.32;
+  opacity: 0.22;
 }
 
 .dark body::after {
@@ -294,19 +294,21 @@ body::after {
 }
 
 .paper-panel {
-  background: rgba(255, 251, 244, 0.72);
-  border: 1px solid rgba(106, 88, 62, 0.14);
-  box-shadow: var(--shadow-md);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .dark .paper-panel {
-  background: rgba(27, 33, 41, 0.76);
-  border-color: rgba(244, 239, 230, 0.08);
+  background: transparent;
+  border-color: transparent;
 }
 
 .lead-panel {
   position: relative;
   overflow: hidden;
+  border-top: 1px solid rgba(107, 91, 78, 0.16);
+  border-bottom: 1px solid rgba(107, 91, 78, 0.16);
 }
 
 .lead-panel::before {
@@ -314,8 +316,8 @@ body::after {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, rgba(139, 94, 52, 0.06), transparent 52%),
-    linear-gradient(90deg, transparent, rgba(26, 37, 52, 0.03), transparent);
+    linear-gradient(135deg, rgba(107, 91, 78, 0.03), transparent 52%),
+    linear-gradient(90deg, transparent, rgba(35, 40, 48, 0.02), transparent);
   pointer-events: none;
 }
 
@@ -331,6 +333,11 @@ body::after {
   font-size: 3.3rem;
   line-height: 0.9;
   color: var(--accent);
+}
+
+.dark .lead-panel {
+  border-top-color: rgba(244, 239, 230, 0.08);
+  border-bottom-color: rgba(244, 239, 230, 0.08);
 }
 
 .profile-portrait {
