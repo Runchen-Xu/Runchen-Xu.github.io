@@ -250,6 +250,28 @@ body::after {
   opacity: 0.2;
 }
 
+.nav-on-image {
+  background:
+    linear-gradient(180deg, rgba(250, 248, 244, 0.9), rgba(250, 248, 244, 0.82)),
+    radial-gradient(circle at top left, rgba(107, 91, 78, 0.02), transparent 22%),
+    radial-gradient(circle at top right, rgba(90, 98, 120, 0.02), transparent 22%),
+    url("/images/backgrounds/celestial-paper.png");
+  background-size: auto, auto, auto, cover;
+  background-position: center, top left, top right, center top;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+}
+
+.dark .nav-on-image {
+  background:
+    linear-gradient(180deg, rgba(20, 24, 30, 0.92), rgba(20, 24, 30, 0.88)),
+    radial-gradient(circle at top left, rgba(195, 149, 95, 0.04), transparent 24%),
+    radial-gradient(circle at top right, rgba(244, 239, 230, 0.03), transparent 20%),
+    url("/images/backgrounds/celestial-paper.png");
+  background-size: auto, auto, auto, cover;
+  background-position: center, top left, top right, center top;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+}
+
 /* Typography utilities */
 .text-balance {
   text-wrap: balance;
