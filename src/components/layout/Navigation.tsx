@@ -168,7 +168,7 @@ export default function Navigation({
             className={cn(
               'transition-all duration-300 ease-out',
               scrolled
-                ? 'nav-on-image border-b border-[rgba(107,91,78,0.12)] dark:border-[rgba(244,239,230,0.08)]'
+                ? 'nav-on-image'
                 : 'bg-transparent'
             )}
           >
@@ -274,7 +274,7 @@ export default function Navigation({
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="nav-on-image lg:hidden border-b border-[rgba(107,91,78,0.12)] dark:border-[rgba(244,239,230,0.08)]"
+                  className="nav-on-image lg:hidden"
                 >
                   <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                     {effectiveItems.map((item, index) => {
