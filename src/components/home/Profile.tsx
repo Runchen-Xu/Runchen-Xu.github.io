@@ -111,15 +111,6 @@ export default function Profile({ author, social, features, researchInterests }:
             transition={{ duration: 0.6 }}
             className="sticky top-28"
         >
-            <a
-                href="https://www.liuailab.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mb-4 inline-flex text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-accent display-sans transition-colors hover:text-accent-dark"
-            >
-                Civilised Agent Lab
-            </a>
-
             <div className="profile-portrait mx-auto mb-7">
                 <div className="profile-portrait__frame">
                     <Image
