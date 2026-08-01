@@ -23,6 +23,24 @@ function formatVenueAndYear(pub: Publication): string {
 
 function getVenueBadge(pub: Publication): string | null {
   const venue = pub.conference || pub.journal || '';
+  const normalizedVenue = venue.toLowerCase();
+
+  if (normalizedVenue.includes('internet of things journal')) {
+    return 'IoTJ';
+  }
+
+  if (normalizedVenue.includes('global communications conference')) {
+    return 'Globecom';
+  }
+
+  if (normalizedVenue.includes('personal, indoor and mobile radio communications')) {
+    return 'PIMRC';
+  }
+
+  if (normalizedVenue.includes('ecml pkdd')) {
+    return 'ECML PKDD';
+  }
+
   const parenthetical = venue.match(/\(([^)]+)\)/);
   if (parenthetical?.[1]) {
     return parenthetical[1];
