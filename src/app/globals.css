@@ -300,7 +300,8 @@ i {
   width: 100%;
   height: auto;
   object-fit: cover;
-  transition: transform 260ms ease;
+  filter: brightness(1.11) contrast(1.03) saturate(1.04);
+  transition: transform 260ms ease, filter 260ms ease;
 }
 
 .home-intro__image-shell:hover::before,
@@ -321,6 +322,7 @@ i {
 .home-intro__image-shell:hover .home-intro__image,
 .home-intro__image-shell:focus-within .home-intro__image {
   transform: scale(1.03);
+  filter: brightness(1.15) contrast(1.04) saturate(1.06);
 }
 
 .home-social {
