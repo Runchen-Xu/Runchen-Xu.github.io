@@ -31,7 +31,7 @@ export default function DynamicPageClient({ dataByLocale, defaultLocale }: Dynam
   }
 
   return (
-    <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="site-page site-page--inner">
       {pageData.type === 'publication' && (
         <PublicationsList config={pageData.config} publications={pageData.publications} />
       )}

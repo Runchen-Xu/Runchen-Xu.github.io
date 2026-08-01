@@ -54,75 +54,96 @@ export default function HomePageClient({ dataByLocale, defaultLocale }: HomePage
   }
 
   return (
-    <div className="editorial-shell max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-10 lg:py-14 min-h-screen">
-      <div className="grid grid-cols-1 xl:grid-cols-[19rem_minmax(0,1fr)] gap-12 xl:gap-[4.5rem]">
-        <div className="xl:pr-10">
-          <Profile
-            author={data.author}
-            social={data.social}
-            features={data.features}
-            researchInterests={data.researchInterests}
-          />
-        </div>
+    <div className="site-page">
+      {data.pagesToShow.map((page) => {
+        if (page.type === 'about') {
+          let introRendered = false;
 
-        <div className="space-y-16 lg:space-y-20 xl:pl-4">
-          {data.pagesToShow.map((page) => (
-            <section key={page.id} id={page.id} className="scroll-mt-28 space-y-14">
-              {page.type === 'about' && page.sections.map((section: SectionConfig) => {
-                switch (section.type) {
-                  case 'markdown':
-                    return (
-                      <About
-                        key={section.id}
-                        content={section.content || ''}
-                        title={section.title}
-                      />
-                    );
-                  case 'publications':
-                    return (
-                      <SelectedPublications
-                        key={section.id}
-                        publications={section.publications || []}
-                        title={section.title}
-                        enableOnePageMode={data.enableOnePageMode}
-                      />
-                    );
-                  case 'list':
-                    return (
-                      <News
-                        key={section.id}
-                        items={section.items || []}
-                        title={section.title}
-                      />
-                    );
-                  default:
-                    return null;
+          return (
+            <section key={page.id}>
+              {page.sections.map((section) => {
+                if (section.type === 'markdown' && !introRendered) {
+                  introRendered = true;
+                  return (
+                    <Profile
+                      key={section.id}
+                      author={data.author}
+                      social={data.social}
+                      bioContent={section.content || ''}
+                    />
+                  );
                 }
+
+                if (section.type === 'markdown') {
+                  return (
+                    <About
+                      key={section.id}
+                      content={section.content || ''}
+                      title={section.title}
+                    />
+                  );
+                }
+
+                if (section.type === 'list') {
+                  return (
+                    <News
+                      key={section.id}
+                      items={section.items || []}
+                      title={section.title}
+                    />
+                  );
+                }
+
+                if (section.type === 'publications') {
+                  return (
+                    <SelectedPublications
+                      key={section.id}
+                      publications={section.publications || []}
+                      title={section.title}
+                      enableOnePageMode={data.enableOnePageMode}
+                    />
+                  );
+                }
+
+                return null;
               })}
-              {page.type === 'publication' && (
-                <PublicationsList
-                  config={page.config}
-                  publications={page.publications}
-                  embedded={true}
-                />
-              )}
-              {page.type === 'text' && (
-                <TextPage
-                  config={page.config}
-                  content={page.content}
-                  embedded={true}
-                />
-              )}
-              {page.type === 'card' && (
-                <CardPage
-                  config={page.config}
-                  embedded={true}
-                />
-              )}
             </section>
-          ))}
-        </div>
-      </div>
+          );
+        }
+
+        if (page.type === 'publication') {
+          return (
+            <section key={page.id} className="section-block">
+              <PublicationsList
+                config={page.config}
+                publications={page.publications}
+                embedded={true}
+              />
+            </section>
+          );
+        }
+
+        if (page.type === 'text') {
+          return (
+            <section key={page.id} className="section-block">
+              <TextPage
+                config={page.config}
+                content={page.content}
+                embedded={true}
+              />
+            </section>
+          );
+        }
+
+        return (
+          <section key={page.id} className="section-block">
+            <CardPage
+              config={page.config}
+              embedded={true}
+            />
+          </section>
+        );
+      })}
     </div>
   );
 }
