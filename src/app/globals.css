@@ -365,10 +365,10 @@ i {
 
 .research-card {
   display: grid;
-  grid-template-columns: minmax(156px, 196px) minmax(0, 1fr);
-  gap: 1.35rem;
+  grid-template-columns: minmax(148px, 176px) minmax(0, 1fr);
+  gap: 1.1rem;
   align-items: center;
-  padding: 1.25rem 1.35rem;
+  padding: 1rem 1.15rem;
   border: 1px solid var(--line);
   border-left: 4px solid var(--accent);
   border-radius: 0.85rem;
@@ -394,7 +394,8 @@ i {
 
 .research-card__image {
   width: 100%;
-  height: auto;
+  aspect-ratio: 200 / 138;
+  object-fit: cover;
   display: block;
   border-radius: 0.55rem;
   border: 1px solid color-mix(in srgb, var(--accent) 16%, var(--line));
@@ -411,10 +412,10 @@ i {
 }
 
 .research-card__title {
-  margin: 0 0 0.55rem;
+  margin: 0 0 0.4rem;
   color: #0f3c75;
-  font-size: 1.85rem;
-  line-height: 1.18;
+  font-size: 1.62rem;
+  line-height: 1.14;
   font-weight: 700;
   transition: color 0.2s ease;
 }
@@ -426,8 +427,8 @@ i {
 .research-card__summary {
   margin: 0;
   color: var(--foreground);
-  font-size: 1rem;
-  line-height: 1.55;
+  font-size: 0.97rem;
+  line-height: 1.48;
   font-weight: 300;
 }
 
@@ -438,19 +439,19 @@ i {
 .research-card__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem;
-  margin-top: 1rem;
+  gap: 0.55rem;
+  margin-top: 0.8rem;
 }
 
 .research-card__tag {
   display: inline-flex;
   align-items: center;
   gap: 0.42rem;
-  padding: 0.55rem 0.95rem;
+  padding: 0.48rem 0.84rem;
   border-radius: 999px;
   background: #123f78;
   color: #fff;
-  font-size: 0.98rem;
+  font-size: 0.9rem;
   line-height: 1;
   font-weight: 500;
   box-shadow: 0 3px 10px rgba(18, 63, 120, 0.16);
@@ -757,7 +758,7 @@ i {
   }
 
   .research-card {
-    grid-template-columns: minmax(164px, 196px) minmax(0, 1fr);
+    grid-template-columns: minmax(148px, 176px) minmax(0, 1fr);
   }
 
   .pub-entry {
@@ -859,8 +860,8 @@ i {
 
   .research-card {
     grid-template-columns: 1fr;
-    gap: 0.95rem;
-    padding: 1rem 1rem 1.05rem;
+    gap: 0.8rem;
+    padding: 0.9rem 0.92rem 0.95rem;
   }
 
   .research-card__media {
@@ -868,27 +869,27 @@ i {
   }
 
   .research-card__image {
-    width: min(210px, 100%);
+    width: min(188px, 100%);
   }
 
   .research-card__title {
-    font-size: 1.42rem;
-    line-height: 1.22;
+    font-size: 1.3rem;
+    line-height: 1.18;
   }
 
   .research-card__summary {
-    font-size: 0.97rem;
-    line-height: 1.5;
+    font-size: 0.94rem;
+    line-height: 1.45;
   }
 
   .research-card__tags {
-    gap: 0.5rem;
-    margin-top: 0.8rem;
+    gap: 0.45rem;
+    margin-top: 0.65rem;
   }
 
   .research-card__tag {
-    padding: 0.48rem 0.82rem;
-    font-size: 0.84rem;
+    padding: 0.42rem 0.72rem;
+    font-size: 0.78rem;
   }
 
   .news-table,
