@@ -2,6 +2,7 @@
 
 import Profile from '@/components/home/Profile';
 import About from '@/components/home/About';
+import ResearchHighlights, { type ResearchCard } from '@/components/home/ResearchHighlights';
 import SelectedPublications from '@/components/home/SelectedPublications';
 import News, { NewsItem } from '@/components/home/News';
 import PublicationsList from '@/components/publications/PublicationsList';
@@ -36,6 +37,7 @@ export interface HomePageLocaleData {
   features: SiteConfig['features'];
   enableOnePageMode?: boolean;
   researchInterests?: string[];
+  researchCards?: ResearchCard[];
   pagesToShow: PageData[];
 }
 
@@ -65,12 +67,18 @@ export default function HomePageClient({ dataByLocale, defaultLocale }: HomePage
                 if (section.type === 'markdown' && !introRendered) {
                   introRendered = true;
                   return (
-                    <Profile
-                      key={section.id}
-                      author={data.author}
-                      social={data.social}
-                      bioContent={section.content || ''}
-                    />
+                    <div key={section.id}>
+                      <Profile
+                        author={data.author}
+                        social={data.social}
+                        bioContent={section.content || ''}
+                      />
+                      {data.researchCards?.length ? (
+                        <ResearchHighlights
+                          cards={data.researchCards}
+                        />
+                      ) : null}
+                    </div>
                   );
                 }
 

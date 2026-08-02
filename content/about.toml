@@ -9,6 +9,24 @@ research_interests = [
   "Game Theory"
 ]
 
+[[profile.research_cards]]
+title = "Multi-Agent AI Systems"
+summary = "Analyzing and optimizing interactions in multi-agent AI systems."
+image = "/research/multi-agent-ai-systems.png"
+tags = [
+  "Decentralized Artificial Intelligence",
+  "Multi-Agent AI Systems"
+]
+
+[[profile.research_cards]]
+title = "AI Marketplace Design"
+summary = "Designing effective mechanisms for the AI marketplace."
+image = "/research/ai-marketplace-design.png"
+tags = [
+  "AI Marketplace Design",
+  "Game Theory"
+]
+
 [[sections]]
 id = "about"
 type = "markdown"

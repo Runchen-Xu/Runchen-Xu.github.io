@@ -2,6 +2,7 @@ import { getConfig } from '@/lib/config';
 import { getMarkdownContent, getBibtexContent, getTomlContent, getPageConfig } from '@/lib/content';
 import { parseBibTeX } from '@/lib/bibtexParser';
 import HomePageClient, { type HomePageLocaleData } from '@/components/home/HomePageClient';
+import type { ResearchCard } from '@/components/home/ResearchHighlights';
 import { Publication } from '@/types/publication';
 import { BasePageConfig, PublicationPageConfig, TextPageConfig, CardPageConfig } from '@/types/page';
 import { getRuntimeI18nConfig } from '@/lib/i18n/config';
@@ -68,8 +69,15 @@ function loadPageDataForLocale(locale: string | undefined): HomePageLocaleData {
   const localeConfig = getConfig(locale);
   const enableOnePageMode = localeConfig.features.enable_one_page_mode;
 
-  const aboutConfig = getPageConfig<{ profile?: { research_interests?: string[] }; sections?: SectionConfig[] }>('about', locale);
+  const aboutConfig = getPageConfig<{
+    profile?: {
+      research_interests?: string[];
+      research_cards?: ResearchCard[];
+    };
+    sections?: SectionConfig[];
+  }>('about', locale);
   const researchInterests = aboutConfig?.profile?.research_interests;
+  const researchCards = aboutConfig?.profile?.research_cards;
 
   let pagesToShow: PageData[] = [];
 
@@ -136,6 +144,7 @@ function loadPageDataForLocale(locale: string | undefined): HomePageLocaleData {
     features: localeConfig.features,
     enableOnePageMode,
     researchInterests,
+    researchCards,
     pagesToShow,
   };
 }
