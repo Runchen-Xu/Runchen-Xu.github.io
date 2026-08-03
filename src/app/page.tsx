@@ -136,6 +136,15 @@ function loadPageDataForLocale(locale: string | undefined): HomePageLocaleData {
       id: 'about',
       sections: processSections(aboutConfig.sections || [], locale),
     }];
+
+    const teachingConfig = getPageConfig('teaching', locale);
+    if (teachingConfig && (teachingConfig as BasePageConfig).type === 'card') {
+      pagesToShow.push({
+        type: 'card',
+        id: 'teaching',
+        config: teachingConfig as CardPageConfig,
+      });
+    }
   }
 
   return {
