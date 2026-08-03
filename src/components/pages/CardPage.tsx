@@ -12,10 +12,14 @@ export default function CardPage({ config, embedded = false }: { config: CardPag
       transition={{ duration: 0.45 }}
       className={embedded ? '' : 'site-page site-page--inner'}
     >
-      <h1 className="page-title">
-        <strong>{config.title.split(' ')[0]}</strong>
-        {config.title.includes(' ') ? ` ${config.title.split(' ').slice(1).join(' ')}` : ''}
-      </h1>
+      {embedded ? (
+        <h2 className="section-heading">{config.title}</h2>
+      ) : (
+        <h1 className="page-title">
+          <strong>{config.title.split(' ')[0]}</strong>
+          {config.title.includes(' ') ? ` ${config.title.split(' ').slice(1).join(' ')}` : ''}
+        </h1>
+      )}
       {config.description ? (
         <p className="page-intro">{config.description}</p>
       ) : null}
