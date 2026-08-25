@@ -4,7 +4,7 @@ import Profile from '@/components/home/Profile';
 import About from '@/components/home/About';
 import ResearchHighlights, { type ResearchCard } from '@/components/home/ResearchHighlights';
 import SelectedPublications from '@/components/home/SelectedPublications';
-import News, { NewsItem } from '@/components/home/News';
+import { NewsItem } from '@/components/home/News';
 import PublicationsList from '@/components/publications/PublicationsList';
 import TextPage from '@/components/pages/TextPage';
 import CardPage from '@/components/pages/CardPage';
@@ -60,6 +60,7 @@ export default function HomePageClient({ dataByLocale, defaultLocale }: HomePage
       {data.pagesToShow.map((page) => {
         if (page.type === 'about') {
           let introRendered = false;
+          const embeddedNewsSection = page.sections.find((section) => section.type === 'list');
 
           return (
             <section key={page.id}>
@@ -72,6 +73,8 @@ export default function HomePageClient({ dataByLocale, defaultLocale }: HomePage
                         author={data.author}
                         social={data.social}
                         bioContent={section.content || ''}
+                        newsItems={embeddedNewsSection?.items || []}
+                        newsTitle={embeddedNewsSection?.title}
                       />
                       {data.researchCards?.length ? (
                         <ResearchHighlights
@@ -93,13 +96,7 @@ export default function HomePageClient({ dataByLocale, defaultLocale }: HomePage
                 }
 
                 if (section.type === 'list') {
-                  return (
-                    <News
-                      key={section.id}
-                      items={section.items || []}
-                      title={section.title}
-                    />
-                  );
+                  return null;
                 }
 
                 if (section.type === 'publications') {

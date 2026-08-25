@@ -12,11 +12,36 @@ export interface NewsItem {
 interface NewsProps {
   items: NewsItem[];
   title?: string;
+  embedded?: boolean;
 }
 
-export default function News({ items, title }: NewsProps) {
+export default function News({ items, title, embedded = false }: NewsProps) {
   const messages = useMessages();
   const resolvedTitle = title || messages.home.news;
+
+  if (embedded) {
+    return (
+      <div className="home-news">
+        <h2 className="home-news__heading">{resolvedTitle}</h2>
+        <ul className="home-news__list">
+          {items.map((item, index) => (
+            <li key={`${item.date}-${index}`} className="home-news__item">
+              <div className="home-news__date">{item.date}</div>
+              <div className="home-news__content">
+                {item.url ? (
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
+                    {item.content}
+                  </a>
+                ) : (
+                  item.content
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
 
   return (
     <motion.section
