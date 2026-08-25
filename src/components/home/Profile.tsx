@@ -112,14 +112,6 @@ export default function Profile({ author, social, bioContent, newsItems = [], ne
             </ReactMarkdown>
           </div>
 
-          {newsItems.length ? (
-            <News
-              items={newsItems}
-              title={newsTitle}
-              embedded={true}
-            />
-          ) : null}
-
           <div className="home-social" aria-label="Social links">
             {socialLinks.map((link) => {
               const IconComponent = link.icon;
@@ -137,6 +129,14 @@ export default function Profile({ author, social, bioContent, newsItems = [], ne
               );
             })}
           </div>
+
+          {newsItems.length ? (
+            <News
+              items={newsItems}
+              title={newsTitle}
+              embedded={true}
+            />
+          ) : null}
         </div>
 
         <div className="home-intro__image-shell">
