@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import ReactMarkdown from 'react-markdown';
 import { useMessages } from '@/lib/i18n/useMessages';
 
 export interface NewsItem {
@@ -20,35 +19,6 @@ export default function News({ items, title, embedded = false }: NewsProps) {
   const messages = useMessages();
   const resolvedTitle = title || messages.home.news;
 
-  const renderNewsContent = (item: NewsItem) => {
-    const body = (
-      <ReactMarkdown
-        components={{
-          p: ({ children }) => <>{children}</>,
-          a: ({ ...props }) => (
-            <a
-              {...props}
-              target="_blank"
-              rel="noopener noreferrer"
-            />
-          ),
-        }}
-      >
-        {item.content}
-      </ReactMarkdown>
-    );
-
-    if (item.url) {
-      return (
-        <a href={item.url} target="_blank" rel="noopener noreferrer">
-          {body}
-        </a>
-      );
-    }
-
-    return body;
-  };
-
   if (embedded) {
     return (
       <div className="home-news">
@@ -57,7 +27,15 @@ export default function News({ items, title, embedded = false }: NewsProps) {
           {items.map((item, index) => (
             <li key={`${item.date}-${index}`} className="home-news__item">
               <div className="home-news__date">{item.date}</div>
-              <div className="home-news__content">{renderNewsContent(item)}</div>
+              <div className="home-news__content">
+                {item.url ? (
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
+                    {item.content}
+                  </a>
+                ) : (
+                  item.content
+                )}
+              </div>
             </li>
           ))}
         </ul>
@@ -78,7 +56,15 @@ export default function News({ items, title, embedded = false }: NewsProps) {
           {items.map((item, index) => (
             <tr key={`${item.date}-${index}`}>
               <th scope="row">{item.date}</th>
-              <td>{renderNewsContent(item)}</td>
+              <td>
+                {item.url ? (
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
+                    {item.content}
+                  </a>
+                ) : (
+                  item.content
+                )}
+              </td>
             </tr>
           ))}
         </tbody>
