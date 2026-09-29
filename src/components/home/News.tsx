@@ -31,10 +31,9 @@ export default function News({ items, title, embedded = false }: NewsProps) {
               <div className="home-news__content">
                 {item.url && item.link_text ? (
                   <>
-                    {item.content}{' '}
                     <a href={item.url} target="_blank" rel="noopener noreferrer">
                       {item.link_text}
-                    </a>
+                    </a>: {item.content}
                   </>
                 ) : item.url ? (
                   <a href={item.url} target="_blank" rel="noopener noreferrer">
@@ -67,10 +66,9 @@ export default function News({ items, title, embedded = false }: NewsProps) {
               <td>
                 {item.url && item.link_text ? (
                   <>
-                    {item.content}{' '}
                     <a href={item.url} target="_blank" rel="noopener noreferrer">
                       {item.link_text}
-                    </a>
+                    </a>: {item.content}
                   </>
                 ) : item.url ? (
                   <a href={item.url} target="_blank" rel="noopener noreferrer">
