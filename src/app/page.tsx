@@ -23,6 +23,7 @@ interface NewsItem {
   date: string;
   content: string;
   url?: string;
+  link_text?: string;
 }
 
 type PageData =

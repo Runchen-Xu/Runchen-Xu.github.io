@@ -7,6 +7,7 @@ export interface NewsItem {
   date: string;
   content: string;
   url?: string;
+  link_text?: string;
 }
 
 interface NewsProps {
@@ -28,7 +29,14 @@ export default function News({ items, title, embedded = false }: NewsProps) {
             <li key={`${item.date}-${index}`} className="home-news__item">
               <div className="home-news__date">{item.date}</div>
               <div className="home-news__content">
-                {item.url ? (
+                {item.url && item.link_text ? (
+                  <>
+                    {item.content}{' '}
+                    <a href={item.url} target="_blank" rel="noopener noreferrer">
+                      {item.link_text}
+                    </a>
+                  </>
+                ) : item.url ? (
                   <a href={item.url} target="_blank" rel="noopener noreferrer">
                     {item.content}
                   </a>
@@ -57,7 +65,14 @@ export default function News({ items, title, embedded = false }: NewsProps) {
             <tr key={`${item.date}-${index}`}>
               <th scope="row">{item.date}</th>
               <td>
-                {item.url ? (
+                {item.url && item.link_text ? (
+                  <>
+                    {item.content}{' '}
+                    <a href={item.url} target="_blank" rel="noopener noreferrer">
+                      {item.link_text}
+                    </a>
+                  </>
+                ) : item.url ? (
                   <a href={item.url} target="_blank" rel="noopener noreferrer">
                     {item.content}
                   </a>
