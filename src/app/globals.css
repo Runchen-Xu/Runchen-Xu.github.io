@@ -327,7 +327,7 @@ i {
 }
 
 .home-intro__image-shell {
-  width: min(292px, 100%);
+  width: min(146px, 100%);
   margin: 0 auto;
   position: relative;
 }
@@ -339,21 +339,12 @@ i {
   border: 1px solid color-mix(in srgb, var(--accent) 26%, transparent);
   border-radius: 0;
   opacity: 0.82;
-  transition:
-    transform 260ms ease,
-    border-radius 320ms ease,
-    border-color 260ms ease,
-    opacity 260ms ease;
 }
 
 .home-intro__image-frame {
   overflow: hidden;
   border-radius: 0;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.16);
-  transition:
-    transform 260ms ease,
-    border-radius 320ms ease,
-    box-shadow 260ms ease;
 }
 
 .home-intro__image {
@@ -361,27 +352,6 @@ i {
   width: 100%;
   height: auto;
   object-fit: cover;
-  transition: transform 260ms ease;
-}
-
-.home-intro__image-shell:hover::before,
-.home-intro__image-shell:focus-within::before {
-  transform: rotate(-4deg) scale(1.03);
-  border-radius: 64% 36% 44% 56% / 54% 42% 58% 46%;
-  border-color: color-mix(in srgb, var(--accent) 48%, transparent);
-  opacity: 1;
-}
-
-.home-intro__image-shell:hover .home-intro__image-frame,
-.home-intro__image-shell:focus-within .home-intro__image-frame {
-  transform: scale(1.04);
-  border-radius: 68% 32% 38% 62% / 55% 45% 55% 45%;
-  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.18);
-}
-
-.home-intro__image-shell:hover .home-intro__image,
-.home-intro__image-shell:focus-within .home-intro__image {
-  transform: scale(1.03);
 }
 
 .home-social {
@@ -892,7 +862,7 @@ i {
   }
 
   .home-intro__image-shell {
-    width: min(230px, 72vw);
+    width: min(115px, 72vw);
     order: -1;
     margin: 0 auto 0.25rem;
   }
@@ -1095,7 +1065,7 @@ i {
   }
 
   .home-intro__image-shell {
-    width: min(210px, 70vw);
+    width: min(105px, 70vw);
   }
 
   .section-heading {
