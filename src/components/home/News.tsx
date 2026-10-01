@@ -10,6 +10,17 @@ export interface NewsItem {
   link_text?: string;
 }
 
+const newsSymbols = ['✦', '◇', '✧', '◈', '✳', '⊹'];
+
+function getNewsSymbol(item: NewsItem): string {
+  const key = `${item.date}-${item.content}`;
+  const hash = Array.from(key).reduce((value, character) => (
+    (value * 31 + character.charCodeAt(0)) >>> 0
+  ), 0);
+
+  return newsSymbols[hash % newsSymbols.length];
+}
+
 interface NewsProps {
   items: NewsItem[];
   title?: string;
@@ -29,6 +40,7 @@ export default function News({ items, title, embedded = false }: NewsProps) {
             <li key={`${item.date}-${index}`} className="home-news__item">
               <div className="home-news__date">{item.date}</div>
               <div className="home-news__content">
+                <span className="news-symbol" aria-hidden="true">{getNewsSymbol(item)}</span>
                 {item.url && item.link_text ? (
                   <>
                     <a href={item.url} target="_blank" rel="noopener noreferrer">
@@ -64,6 +76,7 @@ export default function News({ items, title, embedded = false }: NewsProps) {
             <tr key={`${item.date}-${index}`}>
               <th scope="row">{item.date}</th>
               <td>
+                <span className="news-symbol" aria-hidden="true">{getNewsSymbol(item)}</span>
                 {item.url && item.link_text ? (
                   <>
                     <a href={item.url} target="_blank" rel="noopener noreferrer">

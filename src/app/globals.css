@@ -312,6 +312,16 @@ i {
   font-weight: 300;
 }
 
+.news-symbol {
+  display: inline-block;
+  width: 1.1em;
+  color: var(--accent);
+  font-size: 0.82em;
+  font-weight: 500;
+  text-align: center;
+  vertical-align: 0.06em;
+}
+
 .home-news__content a {
   color: var(--accent);
 }
@@ -327,7 +337,7 @@ i {
   position: absolute;
   inset: -0.45rem;
   border: 1px solid color-mix(in srgb, var(--accent) 26%, transparent);
-  border-radius: 28% 72% 62% 38% / 41% 36% 64% 59%;
+  border-radius: 50%;
   opacity: 0.82;
   transition:
     transform 260ms ease,
@@ -338,7 +348,7 @@ i {
 
 .home-intro__image-frame {
   overflow: hidden;
-  border-radius: 32% 68% 65% 35% / 45% 38% 62% 55%;
+  border-radius: 50%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.16);
   transition:
     transform 260ms ease,
