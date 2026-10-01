@@ -1,6 +1,6 @@
 [[news]]
 date = "2026-09"
-content = "An extensible auction business protocol for AI agents communicating over A2A."
+content = "An auction business protocol for AI agents communicating over A2A."
 link_text = "A2A Auction Protocol"
 url = "https://github.com/Runchen-Xu/a2a-auction-protocol/tree/main"
 
