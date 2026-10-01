@@ -329,16 +329,6 @@ i {
 .home-intro__image-shell {
   width: min(146px, 100%);
   margin: 0 auto;
-  position: relative;
-}
-
-.home-intro__image-shell::before {
-  content: "";
-  position: absolute;
-  inset: -0.45rem;
-  border: 1px solid color-mix(in srgb, var(--accent) 26%, transparent);
-  border-radius: 0;
-  opacity: 0.82;
 }
 
 .home-intro__image-frame {
