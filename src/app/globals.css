@@ -24,8 +24,8 @@
   --foreground: #e8e8e8;
   --muted: #b7b7b7;
   --muted-strong: #d6d6d6;
-  --accent: #348fca;
-  --accent-soft: rgba(52, 143, 202, 0.16);
+  --accent: #1f6fb7;
+  --accent-soft: rgba(31, 111, 183, 0.16);
   --border: #424246;
   --footer-bg: #e8e8e8;
   --footer-fg: #1c1c1d;
@@ -405,7 +405,7 @@ i {
 .research-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  border-left-color: color-mix(in srgb, var(--accent) 82%, #0a4d8e 18%);
+  border-left-color: var(--accent);
 }
 
 .research-card__media {
@@ -471,12 +471,12 @@ i {
   gap: 0.42rem;
   padding: 0.48rem 0.84rem;
   border-radius: 999px;
-  background: #123f78;
+  background: var(--accent);
   color: #fff;
   font-size: 0.9rem;
   line-height: 1;
   font-weight: 500;
-  box-shadow: 0 3px 10px rgba(18, 63, 120, 0.16);
+  box-shadow: 0 3px 10px rgba(31, 111, 183, 0.16);
   transition:
     transform 0.15s ease,
     box-shadow 0.15s ease,
@@ -485,8 +485,8 @@ i {
 
 .research-card__tag:hover {
   transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(18, 63, 120, 0.2);
-  background: #0a4d8e;
+  box-shadow: 0 3px 10px rgba(31, 111, 183, 0.2);
+  background: var(--accent);
 }
 
 .research-card__tag svg {
