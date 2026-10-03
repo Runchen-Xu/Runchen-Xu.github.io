@@ -9,7 +9,6 @@ import {
 } from '@heroicons/react/24/solid';
 import { Github, Linkedin } from 'lucide-react';
 import type { SiteConfig } from '@/lib/config';
-import News, { type NewsItem } from '@/components/home/News';
 
 const OrcidIcon = ({ className }: { className?: string }) => (
   <svg
@@ -26,8 +25,6 @@ interface ProfileProps {
   author: SiteConfig['author'];
   social: SiteConfig['social'];
   bioContent: string;
-  newsItems?: NewsItem[];
-  newsTitle?: string;
 }
 
 function splitName(name: string): { lead: string; rest: string } {
@@ -40,7 +37,7 @@ function splitName(name: string): { lead: string; rest: string } {
   };
 }
 
-export default function Profile({ author, social, bioContent, newsItems = [], newsTitle }: ProfileProps) {
+export default function Profile({ author, social, bioContent }: ProfileProps) {
   const { lead, rest } = splitName(author.name);
 
   const socialLinks = [
@@ -129,14 +126,6 @@ export default function Profile({ author, social, bioContent, newsItems = [], ne
               );
             })}
           </div>
-
-          {newsItems.length ? (
-            <News
-              items={newsItems}
-              title={newsTitle}
-              embedded={true}
-            />
-          ) : null}
         </div>
 
         <div className="home-intro__image-shell">

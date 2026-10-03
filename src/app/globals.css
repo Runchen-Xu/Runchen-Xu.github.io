@@ -668,6 +668,13 @@ i {
   margin: 0 0 1rem;
 }
 
+.research-intro strong {
+  font-weight: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+
 .content-markdown ul,
 .content-markdown ol {
   margin: 0 0 1rem 1.25rem;
