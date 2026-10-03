@@ -5,9 +5,11 @@ import { useMessages } from '@/lib/i18n/useMessages';
 
 export interface NewsItem {
   date: string;
-  content: string;
+  content?: string;
   url?: string;
   link_text?: string;
+  before_link?: string;
+  after_link?: string;
 }
 
 const newsSymbols = ['✦', '◇', '✧', '◈', '✳', '⊹'];
@@ -19,6 +21,32 @@ function getNewsSymbol(item: NewsItem): string {
   ), 0);
 
   return newsSymbols[hash % newsSymbols.length];
+}
+
+function renderNewsContent(item: NewsItem) {
+  if (item.url && item.link_text) {
+    const link = (
+      <a href={item.url} target="_blank" rel="noopener noreferrer">
+        {item.link_text}
+      </a>
+    );
+
+    if (item.before_link !== undefined || item.after_link !== undefined) {
+      return <>{item.before_link}{link}{item.after_link}</>;
+    }
+
+    return <>{link}: {item.content}</>;
+  }
+
+  if (item.url) {
+    return (
+      <a href={item.url} target="_blank" rel="noopener noreferrer">
+        {item.content}
+      </a>
+    );
+  }
+
+  return item.content;
 }
 
 interface NewsProps {
@@ -41,19 +69,7 @@ export default function News({ items, title, embedded = false }: NewsProps) {
               <div className="home-news__date">{item.date}</div>
               <div className="home-news__content">
                 <span className="news-symbol" aria-hidden="true">{getNewsSymbol(item)}</span>
-                {item.url && item.link_text ? (
-                  <>
-                    <a href={item.url} target="_blank" rel="noopener noreferrer">
-                      {item.link_text}
-                    </a>: {item.content}
-                  </>
-                ) : item.url ? (
-                  <a href={item.url} target="_blank" rel="noopener noreferrer">
-                    {item.content}
-                  </a>
-                ) : (
-                  item.content
-                )}
+                {renderNewsContent(item)}
               </div>
             </li>
           ))}
@@ -77,19 +93,7 @@ export default function News({ items, title, embedded = false }: NewsProps) {
               <th scope="row">{item.date}</th>
               <td>
                 <span className="news-symbol" aria-hidden="true">{getNewsSymbol(item)}</span>
-                {item.url && item.link_text ? (
-                  <>
-                    <a href={item.url} target="_blank" rel="noopener noreferrer">
-                      {item.link_text}
-                    </a>: {item.content}
-                  </>
-                ) : item.url ? (
-                  <a href={item.url} target="_blank" rel="noopener noreferrer">
-                    {item.content}
-                  </a>
-                ) : (
-                  item.content
-                )}
+                {renderNewsContent(item)}
               </td>
             </tr>
           ))}

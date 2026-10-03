@@ -681,6 +681,10 @@ i {
   padding: 0;
 }
 
+.research-intro ul {
+  list-style-type: disc;
+}
+
 .content-markdown li + li {
   margin-top: 0.35rem;
 }

@@ -62,9 +62,7 @@ export default function ResearchHighlights({ cards, intro }: ResearchHighlightsP
 
               <div className="research-card__content">
                 <h3 className="research-card__title">{card.title}</h3>
-                <p className="research-card__summary">
-                  <strong>TL;DR:</strong> {card.summary}
-                </p>
+                <p className="research-card__summary">{card.summary}</p>
 
                 {card.tags?.length ? (
                   <div className="research-card__tags">
