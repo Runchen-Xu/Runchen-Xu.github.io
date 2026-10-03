@@ -37,6 +37,7 @@ export interface HomePageLocaleData {
   features: SiteConfig['features'];
   enableOnePageMode?: boolean;
   researchInterests?: string[];
+  researchIntro?: string;
   researchCards?: ResearchCard[];
   pagesToShow: PageData[];
 }
@@ -79,6 +80,7 @@ export default function HomePageClient({ dataByLocale, defaultLocale }: HomePage
                       {data.researchCards?.length ? (
                         <ResearchHighlights
                           cards={data.researchCards}
+                          intro={data.researchIntro}
                         />
                       ) : null}
                     </div>

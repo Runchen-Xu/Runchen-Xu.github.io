@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import ReactMarkdown from 'react-markdown';
 import { ArrowRight } from 'lucide-react';
 import { useMessages } from '@/lib/i18n/useMessages';
 
@@ -14,12 +15,13 @@ export interface ResearchCard {
 
 interface ResearchHighlightsProps {
   cards: ResearchCard[];
+  intro?: string;
 }
 
-export default function ResearchHighlights({ cards }: ResearchHighlightsProps) {
+export default function ResearchHighlights({ cards, intro }: ResearchHighlightsProps) {
   const messages = useMessages();
 
-  if (cards.length === 0) {
+  if (cards.length === 0 && !intro) {
     return null;
   }
 
@@ -32,45 +34,53 @@ export default function ResearchHighlights({ cards }: ResearchHighlightsProps) {
     >
       <h2 className="section-heading">{messages.home.research}</h2>
 
-      <div className="research-cards" aria-label={messages.home.research}>
-        {cards.map((card, index) => (
-          <motion.article
-            key={card.title}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: index * 0.05 }}
-            className="research-card"
-          >
-            <div className="research-card__media">
-              <Image
-                src={card.image}
-                alt={card.title}
-                width={224}
-                height={224}
-                className="research-card__image"
-              />
-            </div>
+      {intro ? (
+        <div className="content-markdown research-intro">
+          <ReactMarkdown>{intro}</ReactMarkdown>
+        </div>
+      ) : null}
 
-            <div className="research-card__content">
-              <h3 className="research-card__title">{card.title}</h3>
-              <p className="research-card__summary">
-                <strong>TL;DR:</strong> {card.summary}
-              </p>
+      {cards.length ? (
+        <div className="research-cards" aria-label={messages.home.research}>
+          {cards.map((card, index) => (
+            <motion.article
+              key={card.title}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              className="research-card"
+            >
+              <div className="research-card__media">
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  width={224}
+                  height={224}
+                  className="research-card__image"
+                />
+              </div>
 
-              {card.tags?.length ? (
-                <div className="research-card__tags">
-                  {card.tags.map((tag) => (
-                    <span key={tag} className="research-card__tag">
-                      {tag}
-                      <ArrowRight size={15} strokeWidth={2.1} />
-                    </span>
-                  ))}
-                </div>
-              ) : null}
-            </div>
-          </motion.article>
-        ))}
-      </div>
+              <div className="research-card__content">
+                <h3 className="research-card__title">{card.title}</h3>
+                <p className="research-card__summary">
+                  <strong>TL;DR:</strong> {card.summary}
+                </p>
+
+                {card.tags?.length ? (
+                  <div className="research-card__tags">
+                    {card.tags.map((tag) => (
+                      <span key={tag} className="research-card__tag">
+                        {tag}
+                        <ArrowRight size={15} strokeWidth={2.1} />
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      ) : null}
     </motion.section>
   );
 }

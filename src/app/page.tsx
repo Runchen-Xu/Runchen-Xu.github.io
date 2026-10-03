@@ -73,11 +73,13 @@ function loadPageDataForLocale(locale: string | undefined): HomePageLocaleData {
   const aboutConfig = getPageConfig<{
     profile?: {
       research_interests?: string[];
+      research_intro?: string;
       research_cards?: ResearchCard[];
     };
     sections?: SectionConfig[];
   }>('about', locale);
   const researchInterests = aboutConfig?.profile?.research_interests;
+  const researchIntro = aboutConfig?.profile?.research_intro;
   const researchCards = aboutConfig?.profile?.research_cards;
 
   let pagesToShow: PageData[] = [];
@@ -154,6 +156,7 @@ function loadPageDataForLocale(locale: string | undefined): HomePageLocaleData {
     features: localeConfig.features,
     enableOnePageMode,
     researchInterests,
+    researchIntro,
     researchCards,
     pagesToShow,
   };

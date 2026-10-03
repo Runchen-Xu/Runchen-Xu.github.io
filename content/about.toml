@@ -8,6 +8,16 @@ research_interests = [
   "AI Marketplace Design",
   "Game Theory"
 ]
+research_intro = """
+My research lies at the intersection of **Artificial Intelligence and Economic Theory**, with a focus on understanding and optimizing interactions among intelligent agents and designing effective mechanisms for emerging AI ecosystems.
+
+Specifically, my research topics center on **Multi-Agent AI Systems** and **AI Marketplace Design**, especially in:
+
+- **Multi-Agent AI Systems:** Analyzing and optimizing interactions, coordination, and decision-making among multiple AI agents
+- **Decentralized Artificial Intelligence:** Designing decentralized mechanisms and architectures for autonomous AI systems
+- **AI Marketplace Design:** Designing effective mechanisms, incentives, and market structures for AI agents, models, and services
+- **Game Theory and Mechanism Design:** Applying economic and game-theoretic tools to strategic interactions in AI systems
+"""
 
 [[profile.research_cards]]
 title = "Multi-Agent AI Systems"
