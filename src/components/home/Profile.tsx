@@ -133,8 +133,8 @@ export default function Profile({ author, social, bioContent }: ProfileProps) {
             <Image
               src={author.avatar}
               alt={author.name}
-              width={640}
-              height={640}
+              width={1280}
+              height={1700}
               className="home-intro__image"
               priority
             />
